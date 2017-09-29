@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928221607) do
+ActiveRecord::Schema.define(version: 20170929212522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dialogs", force: :cascade do |t|
+    t.string "username"
+    t.string "body"
+    t.integer "reservation_id"
+    t.integer "user_id"
+    t.integer "renter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -23,6 +33,18 @@ ActiveRecord::Schema.define(version: 20170928221607) do
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "day"
+    t.string "city"
+    t.integer "item_id"
+    t.integer "user_id"
+    t.integer "renter_id"
+    t.string "message"
   end
 
   create_table "users", force: :cascade do |t|

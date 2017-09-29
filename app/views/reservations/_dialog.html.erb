@@ -1,0 +1,12 @@
+<%= form_with scope: :dialog, url: "/items/#{@item.id}/reservations/#{@reservation.id}/dialogs", local: true do |form| %>
+
+<p>
+  <%= form.label :body %> <br>
+  <%= form.text_field :body %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>

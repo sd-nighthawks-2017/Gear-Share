@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <p><%= @reservation.day%></p>
+  <p><%= @reservation.city %></p>
+  <p> <%= @reservation.message %> </p>
+
+<table>
+  <tr>
+    <th> username  </th>
+    <th> message </th>
+  </tr>
+
+ <% @dialogs.each do |dialog| %>
+ <tr>
+  <td> <%= dialog.username %> </td>
+  <td> <%= dialog.body %> </td>
+ </tr>
+ <% end %>
+ </table>
+
+<%= render 'dialog' %>
+
+<p><%= link_to 'Back', items_path %> </p>
+
+</body>
+</html>
