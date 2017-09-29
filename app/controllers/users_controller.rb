@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-## GET all staff
+  ## GET all staff
   def index
-    @user = User.all
+    @users = User.all
   end
 
 ## GET new user member form
@@ -38,5 +38,4 @@ class UsersController < ApplicationController
   def delete
     @user = User.find(params[:id])
   end
-
 end
