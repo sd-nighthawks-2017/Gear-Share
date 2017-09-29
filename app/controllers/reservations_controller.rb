@@ -4,7 +4,9 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:item_id])
     @reservation = Reservation.find(params[:id])
+    @dialogs = Dialog.where(reservation_id: @reservation.id)
   end
 
   def new
@@ -51,7 +53,7 @@ class ReservationsController < ApplicationController
   private
 
   def res_params
-    params.require(:reservation).permit(:day, :city)
+    params.require(:reservation).permit(:day, :city, :message)
   end
 
 end

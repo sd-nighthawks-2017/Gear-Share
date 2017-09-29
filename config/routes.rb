@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :users
 
   resources :items do
-    resources :reservations
+    resources :reservations do
+      resource :dialogs, shallow: true
+    end
   end
+
+
+
+
 end
