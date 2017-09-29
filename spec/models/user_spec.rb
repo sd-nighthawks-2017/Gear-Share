@@ -9,7 +9,7 @@ RSpec.describe User, :type => :model do
     end
 
     it "should not save" do
-      expect(user.save).to be true
+      expect(user.save).to be false
     end
   end
 end
