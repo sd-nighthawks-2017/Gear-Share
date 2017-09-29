@@ -1,0 +1,11 @@
+html#profile {
+  background-image: url("camping.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#profile h1 {
+  color: white;
+  text-align: right;
+  font-size: 4em;
+}
