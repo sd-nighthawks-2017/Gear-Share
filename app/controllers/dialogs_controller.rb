@@ -10,6 +10,12 @@ class DialogsController < ApplicationController
     @dialog.reservation_id = @reservation.id
     @dialog.username = @reservation.user.first_name
 
+    if current_user.id == @reservation.user.id
+      @dialog.user_id = @reservation.user.id
+    else
+      @dialog.renter_id = current_user.id
+    end
+
     if @dialog.save
       redirect_to "/items/#{@item.id}/reservations/#{@reservation.id}"
     else
