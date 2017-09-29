@@ -12,7 +12,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+   @item = Item.new(item_params)
+   @item.user_id = current_user.id
+
     if @item.save
       redirect_to @item
     else

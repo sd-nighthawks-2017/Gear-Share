@@ -1,0 +1,17 @@
+<%= form_with scope: :reservation, url: "/items/#{@item.id}/reservations", local: true do |form| %>
+
+<p>
+  <%= form.label :day %> <br>
+  <%= form.text_field :day %>
+</p>
+
+<p>
+  <%= form.label :city %> <br>
+  <%= form.text_field :city %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>
