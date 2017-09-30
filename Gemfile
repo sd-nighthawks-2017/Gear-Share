@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'shoulda-matchers', '~> 3.1'
+
 
 gem 'paperclip', "~> 5.0.0"
 
