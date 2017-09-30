@@ -6,6 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Lato';
+      }
+    </style>
   </head>
 
   <body>
@@ -13,6 +19,14 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <%= render 'shared/navigation' %>
+    <div id="main-container" class="container">
+      <div class="row">
+        <div id="content" class="col-xs-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
