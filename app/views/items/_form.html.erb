@@ -1,19 +1,44 @@
-<%= form_with model: @item, html: {multipart: true}, local: true do |form| %>
-
-<p>
-  <%= form.label :name %> <br>
-  <%= form.text_field :name %>
-</p>
-
- <%= form.file_field :image%>
-
-<p>
-  <%= form.label :description %> <br>
-  <%= form.text_field :description %>
-</p>
-
-<p>
-  <%= form.submit %>
-</p>
-
+<%= form_for(@item, html: {class: 'form-horizontal'}) do |f|%>
+  <div class="field form-group">
+    <%= f.label :name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :description, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="actions form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit %>
+    </div>
+  </div>
 <% end %>
+
+
+<!-- <%#= form_with model: @item, local: true do |form| %>
+
+<%#= form_with model: @item, html: {multipart: true}, local: true do |form| %>
+
+
+<p>
+  <%#= form.label :name %> <br>
+  <%#= form.text_field :name %>
+</p>
+
+ <%#= form.file_field :image%>
+
+<p>
+  <%#= form.label :description %> <br>
+  <%#= form.text_field :description %>
+</p>
+
+<p>
+  <%#= form.submit %>
+</p>
+
+<%# end %>
+ -->

@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 20170930002231) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.datetime "day"
     t.string "city"
     t.integer "item_id"
-    t.integer "user_id"
     t.integer "renter_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "message"
   end
 
