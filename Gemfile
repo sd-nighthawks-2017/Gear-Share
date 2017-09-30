@@ -35,7 +35,6 @@ gem 'devise'
 
 gem 'shoulda-matchers', '~> 3.1'
 
-
 gem 'paperclip', "~> 5.0.0"
 
 gem 'simplecov', :require => false, :group => :test

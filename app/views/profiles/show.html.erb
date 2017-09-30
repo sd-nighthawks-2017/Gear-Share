@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+
+ <p> <%= link_to 'share your gear', new_item_path %> <%= link_to "find gear", users_path  %> <%= link_to "logout", destroy_user_session_path, method: :delete %> </p>
+
+<p> My Gear: </p>
+
+<table>
+  <tr>
+    <th>Name </th>
+    <th>Description </th>
+  </tr>
+<% @items.each do |item| %>
+  <tr>
+    <td> <%= item.name  %></td>
+    <td> <%= item.description  %></td>
+    <td> <%= link_to 'Show', item_path(item) %> </td>
+    <td> <%= link_to 'Edit', edit_item_path(item) %> </td>
+    <td> <%= link_to 'Delete', item_path(item),
+              method: :delete,
+              data: {confirm: 'Are you sure?' } %> </td>
+  </tr>
+<% end %>
+</table>
+
+<p> Items you have reserved: </p>
+<table>
+<tr>
+  <th> Day         </th>
+  <th> City        </th>
+  <th> Item        </th>
+  <th> Description </th>
+</tr>
+
+<% @reservations.each do |res| %>
+  <tr>
+    <td> <%= res.day %> </td>
+    <td> <%= res.city %></td>
+    <td> <%= res.item.name %></td>
+    <td> <%= res.item.description %></td>
+    <td> <%= link_to 'Show', "/items/#{res.item.id}/reservations/#{res.id}"  %> </td>
+    <td> <%= res.item.approved %></td>
+  </tr>
+<% end %>
+</table>
+
+</table>
+
+<p> your items that have been requested: </p>
+<table>
+<tr>
+  <th> Day         </th>
+  <th> City        </th>
+  <th> Item        </th>
+  <th> Description </th>
+  <th> Requested by: </th>
+</tr>
+
+<% @requests.each do |req| %>
+  <tr>
+    <td> <%= req.day %> </td>
+    <td> <%= req.city %></td>
+    <td> <%= req.item.name %></td>
+    <td> <%= req.item.description %></td>
+    <td> <%#= req.user.first_name %> </td>
+    <td> <%= link_to 'Show', "/items/#{req.item.id}/reservations/#{req.id}"  %> </td>
+    <td> <%= req.item.approved %></td>
+  </tr>
+<% end %>
+</table>
+</body>
+</html>

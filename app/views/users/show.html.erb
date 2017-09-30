@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<h1> <%=@user.first_name%>  5 fire rating </h1>
+
+<p> <%=@user.first_name%>s items: <p>
+
+<table>
+  <tr>
+    <th> Name: </th>
+    <th> description </th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td> <%= item.name %> </td>
+    <td> <%= item.description %> </td>
+    <td> <%= link_to 'View', item_path(item) %> </td>
+    <td> <%= link_to image_tag(item.image.url(:large)), item.image.url %> </td>
+    <td> <%= link_to 'Reserve', new_item_reservation_path(item) %> </td>
+  </tr>
+<% end %>
+</table>
+
+</body>
+</html>

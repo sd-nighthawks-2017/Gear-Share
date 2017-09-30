@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
    @item.user_id = current_user.id
 
     if @item.save
-      redirect_to @item
+      redirect_to profile_path(current_user.id)
     else
       render 'new'
     end
@@ -38,9 +38,9 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
-      redirect_to items_path
+      redirect_to profile_path(current_user.id)
     else
-      redirect_to item_path
+      redirect_to profile_path(current_user.id)
     end
   end
 
