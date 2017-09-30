@@ -6,15 +6,20 @@
 <body>
 <h1> <%=@user.first_name%>  5 fire rating </h1>
 
-<p> <%=@user.first_name%>s items: <p>
+<p> <%=@user.first_name%>'s items: <p>
 
-<table>
+
+<div class="container">
+<table class="table">
+<thead>
   <tr>
-    <th> Name: </th>
+    <th> Name </th>
     <th> description </th>
   </tr>
+</thead>
 
 <% @items.each do |item| %>
+<tbody>
   <tr>
     <td> <%= item.name %> </td>
     <td> <%= item.description %> </td>
@@ -23,7 +28,10 @@
     <td> <%= link_to 'Reserve', new_item_reservation_path(item) %> </td>
   </tr>
 <% end %>
+</tbody>
 </table>
+
+<%= link_to 'Back' , users_path %>
 
 </body>
 </html>
