@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/Gear-Share/app/models/user.rb": [
+      "/Users/apprentice/gear-share/app/models/user.rb": [
         1,
         1,
         1,
@@ -13,48 +13,77 @@
         null,
         null
       ],
-      "/Users/apprentice/Gear-Share/app/models/application_record.rb": [
+      "/Users/apprentice/gear-share/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/apprentice/Gear-Share/app/helpers/application_helper.rb": [
+      "/Users/apprentice/gear-share/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Gear-Share/app/helpers/dialogs_helper.rb": [
+      "/Users/apprentice/gear-share/app/helpers/dialogs_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Gear-Share/app/helpers/items_helper.rb": [
+      "/Users/apprentice/gear-share/app/helpers/items_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Gear-Share/app/helpers/reservations_helper.rb": [
+      "/Users/apprentice/gear-share/app/helpers/reservations_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Gear-Share/app/helpers/user_helper.rb": [
+      "/Users/apprentice/gear-share/app/helpers/user_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Gear-Share/app/helpers/users_helper.rb": [
+      "/Users/apprentice/gear-share/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Gear-Share/app/channels/application_cable/channel.rb": [
+      "/Users/apprentice/gear-share/app/models/dialog.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/gear-share/app/models/item.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/apprentice/gear-share/app/models/reservation.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/apprentice/gear-share/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/channels/application_cable/connection.rb": [
+      "/Users/apprentice/gear-share/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/application_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/application_controller.rb": [
         0,
         0,
         0,
@@ -67,7 +96,7 @@
         0,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/dialogs_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/dialogs_controller.rb": [
         0,
         0,
         0,
@@ -82,60 +111,6 @@
         null,
         0,
         0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0
-      ],
-      "/Users/apprentice/Gear-Share/app/controllers/items_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
         0,
         0,
         0,
@@ -176,7 +151,61 @@
         null,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/reservations_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/items_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0
+      ],
+      "/Users/apprentice/gear-share/app/controllers/reservations_controller.rb": [
         0,
         0,
         0,
@@ -237,43 +266,13 @@
         null,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/sessions_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/sessions_controller.rb": [
         0,
         null,
         null,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/users/confirmations_controller.rb": [
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0
-      ],
-      "/Users/apprentice/Gear-Share/app/controllers/users/omniauth_callbacks_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/users/confirmations_controller.rb": [
         0,
         null,
         null,
@@ -303,12 +302,8 @@
         null,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/users/passwords_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/users/omniauth_callbacks_controller.rb": [
         0,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -337,36 +332,8 @@
         null,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/users/registrations_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/users/passwords_controller.rb": [
         0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -399,7 +366,69 @@
         null,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/users/sessions_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/users/registrations_controller.rb": [
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0
+      ],
+      "/Users/apprentice/gear-share/app/controllers/users/sessions_controller.rb": [
         0,
         null,
         null,
@@ -426,7 +455,7 @@
         null,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/users/unlocks_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/users/unlocks_controller.rb": [
         0,
         null,
         null,
@@ -456,7 +485,7 @@
         null,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/controllers/users_controller.rb": [
+      "/Users/apprentice/gear-share/app/controllers/users_controller.rb": [
         0,
         null,
         null,
@@ -499,41 +528,17 @@
         0,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/jobs/application_job.rb": [
+      "/Users/apprentice/gear-share/app/jobs/application_job.rb": [
         0,
         0
       ],
-      "/Users/apprentice/Gear-Share/app/mailers/application_mailer.rb": [
+      "/Users/apprentice/gear-share/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
-        0
-      ],
-      "/Users/apprentice/Gear-Share/app/models/dialog.rb": [
-        0,
-        0,
-        0
-      ],
-      "/Users/apprentice/Gear-Share/app/models/item.rb": [
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        0
-      ],
-      "/Users/apprentice/Gear-Share/app/models/reservation.rb": [
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
         0
       ]
     },
-    "timestamp": 1506732328
+    "timestamp": 1506741025
   }
 }

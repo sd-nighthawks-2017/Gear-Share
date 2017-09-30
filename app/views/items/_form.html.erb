@@ -21,10 +21,15 @@
 
 <!-- <%#= form_with model: @item, local: true do |form| %>
 
+<%#= form_with model: @item, html: {multipart: true}, local: true do |form| %>
+
+
 <p>
   <%#= form.label :name %> <br>
   <%#= form.text_field :name %>
 </p>
+
+ <%#= form.file_field :image%>
 
 <p>
   <%#= form.label :description %> <br>

@@ -33,11 +33,14 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'shoulda-matchers', '~> 3.1'
+
+
+gem 'paperclip', "~> 5.0.0"
+
 gem 'simplecov', :require => false, :group => :test
 
 gem 'bootstrap-sass'
-
-# gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
