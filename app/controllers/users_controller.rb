@@ -21,7 +21,8 @@ class UsersController < ApplicationController
 
 ## GET a specific user member
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @items = Item.where(user_id: @user.id)
   end
 
 ## GET a form for editing the user member
