@@ -28,8 +28,9 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
-      redirect_to @item
+
+    if @item.update(approved: true)
+      redirect_to profile_path(current_user.id)
     else
       render 'edit'
     end
