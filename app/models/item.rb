@@ -8,6 +8,8 @@ class Item < ApplicationRecord
 
   has_many :reservations
 
-
+	def self.search(search)
+  		where("name ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%") 
+	end
 
 end
