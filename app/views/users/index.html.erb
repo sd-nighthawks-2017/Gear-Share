@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>All Users</title>
+	<title>List Item</title>
 </head>
 <body>
-  <h1>Users with items :)</h1>
+
+  <%= form_tag(items_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Available Gear" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+  <h1>Available Gear</h1>
 
   <% @users.each do |user| %>
-  <%= link_to "#{user.first_name}", user_path(user)  %>
-<iframe width="400" height="400" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=<%= user.location %>&key=AIzaSyABZ3-JpMlz3RG2Aw2r8diLnDs1ShsItKw" allowfullscreen></iframe>
+  <%= current_user.distance_to(user.location).round(2)%><span> miles away</span>
 
  <table>
   <tr>
-    <th> Name: </th>
-    <th> description </th>
+    <th> Picture: </th>
+    <th> Owner: </th>
+    <th> Item: </th>
+    <th> Description: </th>
   </tr>
 
 <% user.items.each do |item| %>
   <tr>
+    <td> Pic Here </td>
+    <td> <%= link_to "#{user.first_name}", user_path(user)  %> </td>
     <td> <%= item.name %> </td>
     <td> <%= item.description %> </td>
     <td> <%= link_to 'View', item_path(item) %> </td>
@@ -31,6 +38,3 @@ src="https://www.google.com/maps/embed/v1/place?q=<%= user.location %>&key=AIzaS
 
 </body>
 </html>
-
-
-
