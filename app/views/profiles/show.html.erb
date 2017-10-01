@@ -5,9 +5,6 @@
 </head>
 <body>
 
-
- <p> <%= link_to 'share your gear', new_item_path %> <%= link_to "find gear", users_path  %> <%= link_to "logout", destroy_user_session_path, method: :delete %> </p>
-
 <div class="container">
 <h2> My Gear: </h2>
 <table class="table">
@@ -101,7 +98,7 @@
     <td> <%= req.item.name %></td>
     <td> <%= req.item.description %></td>
     <td> <%= req.renter.first_name %> </td>
-    <td> <%= link_to 'Request', "/items/#{req.item.id}/reservations/#{req.id}"  %> </td>
+    <td> <%= link_to 'Conversation', "/items/#{req.item.id}/reservations/#{req.id}"  %> </td>
 
 
      <% if req.item.approved %>

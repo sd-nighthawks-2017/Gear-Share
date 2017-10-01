@@ -5,12 +5,14 @@
       <%= f.text_field :name, class: 'form-control' %>
     </div>
   </div>
-   <%= f.file_field :image%>
   <div class="field form-group">
     <%= f.label :description, class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_area :description, class: 'form-control' %>
     </div>
+  </div>
+  <div class="field form-group">
+    <label for="file input">Upload Image<%= f.file_field :image%> </label>
   </div>
   <div class="actions form-group">
     <div class="col-sm-offset-2 col-sm-10">
