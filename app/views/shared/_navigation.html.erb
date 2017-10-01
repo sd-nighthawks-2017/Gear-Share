@@ -11,11 +11,16 @@
     <!-- TODO - debug links don't show in hamburger toggle on collapse -->
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav ml-auto">
-        <li class="active"><%= link_to 'View Items',  items_path %></li>
+        <li class="active"><%= link_to 'Find Gear',  users_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li> <%= link_to 'share gear', new_item_path %> </li>
+          <li> <%= link_to "logout", destroy_user_session_path, method: :delete %> </li>
+        <% else %>
         <li><%= link_to 'Sign Up',  new_user_registration_path %></li>
         <li><%= link_to 'Login', new_user_session_path %></ li>
+        <% end %>
       </ul>
     </div>
   </div>
