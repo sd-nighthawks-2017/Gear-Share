@@ -100,14 +100,18 @@
     <td> <%= req.renter.first_name %> </td>
     <td> <%= link_to 'Conversation', "/items/#{req.item.id}/reservations/#{req.id}"  %> </td>
 
-
      <% if req.item.approved %>
-     <td> approved </td>
-     <td><%= link_to "returned?", edit_item_path(req.item) %> </td>
+       <td> approved </td>
+       <td><%= link_to "returned?", item_path(req.item),
+                method: :put,
+                data: {confirm: 'Are you sure?' }%> </td>
      <% else %>
-     <td><%= link_to "approve?", edit_item_path(req.item) %> </td>
+       <td><%= link_to "approve?", item_path(req.item),
+                method: :put,
+                data: {confirm: 'Are you sure?' }%> </td>
      <% end %>
   </tr>
+
 <% end %>
 </tbody>
 </table>
