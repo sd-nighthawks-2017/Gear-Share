@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    if @item.destroy
+    if @item.reservations.destroy_all && @item.destroy
       redirect_to profile_path(current_user.id)
     else
       redirect_to profile_path(current_user.id)
