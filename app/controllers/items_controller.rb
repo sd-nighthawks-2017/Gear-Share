@@ -29,10 +29,12 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
 
-    if @item.update(approved: true)
+    if @item.approved
+      @item.update(approved: false)
       redirect_to profile_path(current_user.id)
     else
-      render 'edit'
+      @item.update(approved: true)
+      redirect_to profile_path(current_user.id)
     end
   end
 
