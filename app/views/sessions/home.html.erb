@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html id="profile">
 <head>
-  <title>Home Page</title>
+  <title></title>
 </head>
 <body>
-  <% if user_signed_in? %>
-    <h1>Welcome back,</h1>
-  <% else %>
-    <h1>Login</h1>
-  <%  end %>
+  <header class="intro-header">
+    <div class="container">
+      <div class="intro-text">
+        <h1>GearShare</h1>
+        <h3>Share the outdoors.</h3>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-xl btn-success' %>
+      </div>
+    </div>
+  </header>
+  <%# if user_signed_in? %>
+    <!-- <h1>Welcome back,</h1> -->
+  <%# else %>
+    <!-- <h1>Login</h1> -->
+  <%#  end %>
 
 </body>
-  <% if user_signed_in? %>
-    <%= link_to "Profile", profile_path(current_user.id) %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Login", new_user_session_path %>
-    <%= link_to "Register", new_user_registration_path %>
-  <%  end %>
 </html>
