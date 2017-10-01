@@ -14,7 +14,7 @@
 
  <table>
   <tr>
-    <th> Location: </th>
+    <th> Picture: </th>
     <th> Owner: </th>
     <th> Item: </th>
     <th> Description: </th>
@@ -22,8 +22,7 @@
 
 <% user.items.each do |item| %>
   <tr>
-    <td>  <iframe width="150" height="150" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=<%= user.location %>&key=AIzaSyABZ3-JpMlz3RG2Aw2r8diLnDs1ShsItKw" allowfullscreen></iframe> </td>
+    <td> Pic Here </td>
     <td> <%= link_to "#{user.first_name}", user_path(user)  %> </td>
     <td> <%= item.name %> </td>
     <td> <%= item.description %> </td>
