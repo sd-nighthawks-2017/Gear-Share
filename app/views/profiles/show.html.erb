@@ -103,6 +103,7 @@
 
      <% if req.item.approved %>
      <td> approved </td>
+     <td><%= link_to "returned?", edit_item_path(req.item) %> </td>
      <% else %>
      <td><%= link_to "approve?", edit_item_path(req.item) %> </td>
      <% end %>
