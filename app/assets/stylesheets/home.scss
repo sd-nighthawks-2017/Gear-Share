@@ -1,21 +1,9 @@
-/*html#profile {
-  background-image: url("camping.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-*/
-/*#profile h1 {
-  color: white;
-  text-align: right;
-  font-size: 4em;
-}*/
-
 .intro-header {
   padding-top: 50px;
   padding-bottom: 50px;
   text-align: center;
   color: white;
-  background: url(camping.jpg) no-repeat;
+  background: url(camping.jpg) no-repeat center center;
   background-size: cover;
 }
 
