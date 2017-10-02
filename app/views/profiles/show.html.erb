@@ -7,7 +7,7 @@
 
 <div class="container">
 <h2> My Gear: </h2>
-<table class="table">
+<table class="table table-hover table-condensed">
 <thead>
   <tr>
     <th>Name </th>
@@ -30,8 +30,8 @@
       <% else %>
         <td> available </td>
       <% end %>
-    <td> <%= link_to 'View', item_path(item) %> </td>
-    <td> <%= link_to 'Delete', item_path(item),
+    <td> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs" %> </td>
+    <td> <%= link_to 'Delete', item_path(item), class: "btn btn-warning btn-xs",
               method: :delete,
               data: {confirm: 'Are you sure?' } %> </td>
   </tr>
@@ -42,7 +42,7 @@
 
 <div class="container">
   <h2> Items you have requested: </h2>
-  <table class="table">
+  <table class="table table-hover table-condensed">
   <thead>
     <tr>
       <th> Day         </th>
@@ -62,7 +62,7 @@
       <td> <%= res.city %></td>
       <td> <%= res.item.name %></td>
       <td> <%= res.item.description %></td>
-      <td> <%= link_to 'Show', "/items/#{res.item.id}/reservations/#{res.id}"  %> </td>
+      <td> <%= link_to 'Show', "/items/#{res.item.id}/reservations/#{res.id}", class: "btn btn-default btn-xs"  %> </td>
        <% if res.item.approved %>
         <td> approved </td>
        <% else %>
@@ -77,7 +77,7 @@
 
 <div class="container">
 <h2> your items that have been requested: </h2>
-<table class="table">
+<table class="table table-hover table-condensed">
 <thead>
   <tr>
     <th> Day          </th>
@@ -98,15 +98,15 @@
     <td> <%= req.item.name %></td>
     <td> <%= req.item.description %></td>
     <td> <%= req.renter.first_name %> </td>
-    <td> <%= link_to 'Conversation', "/items/#{req.item.id}/reservations/#{req.id}"  %> </td>
+    <td> <%= link_to 'Conversation', "/items/#{req.item.id}/reservations/#{req.id}", class: "btn btn-default btn-xs"  %> </td>
 
      <% if req.item.approved %>
        <td> approved </td>
-       <td><%= link_to "returned?", item_path(req.item),
+       <td><%= link_to "returned?", item_path(req.item), class: "btn btn-info btn-xs",
                 method: :put,
                 data: {confirm: 'Are you sure?' }%> </td>
      <% else %>
-       <td><%= link_to "approve?", item_path(req.item),
+       <td><%= link_to "approve?", item_path(req.item), class: "btn btn-info btn-xs",
                 method: :put,
                 data: {confirm: 'Are you sure?' }%> </td>
      <% end %>
