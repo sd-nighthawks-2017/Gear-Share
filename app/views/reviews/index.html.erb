@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Title </th>
+    <th>Body </th>
+    <th>Rating </th>
+  </tr>
+<% @reviews.each do |review| %>
+  <tr>
+    <td> <%= review.title  %></td>
+    <td> <%= review.body  %></td>
+    <td> <%= review.rating  %></td>
+  </tr>
+<% end %>
+</table>
+
+</body>
+</html>

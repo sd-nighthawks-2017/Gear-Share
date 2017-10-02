@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root to: "sessions#home"
 
-  resources :users
+  resources :users do
+    resources :reviews
+  end
 
   resources :items do
     resources :reservations do
