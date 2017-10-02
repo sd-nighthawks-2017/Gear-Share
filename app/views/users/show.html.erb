@@ -4,10 +4,12 @@
   <title></title>
 </head>
 <body>
-<h1> <%=@user.first_name%>  5 fire rating </h1>
+<h1> <%=@user.first_name%>  </h1>
+<% @user.average_rating.times do %>
+  <%= image_tag 'firepit.png', size: "30x30", :title => 'fire_pit' %>
+<% end %>
 
-<p> <%=@user.first_name%>'s items: <p>
-
+<p> <%=@user.first_name%>'s available items: <p>
 
 <div class="container">
 <table class="table">
@@ -19,6 +21,7 @@
 </thead>
 
 <% @items.each do |item| %>
+<% if item.approved == false %>
 <tbody>
   <tr>
     <td> <%= item.name %> </td>
@@ -26,6 +29,33 @@
     <td> <%= link_to 'View', item_path(item) %> </td>
     <td> <%= link_to image_tag(item.image.url(:large)), item.image.url %> </td>
     <td> <%= link_to 'Reserve', new_item_reservation_path(item) %> </td>
+    <td> <%= link_to "Review #{@user.first_name}", new_user_review_path(@user) %> </td>
+  </tr>
+<% end %>
+</tbody>
+<% end %>
+</table>
+
+
+
+<h1> <%=@user.first_name %>'s reviews:</h1>
+<table class="table">
+<thead>
+  <tr>
+    <th>Username</th>
+    <th>Title   </th>
+    <th>Body    </th>
+    <th>Rating  </th>
+  </tr>
+</thead>
+
+<% @reviews.each do |review| %>
+<tbody>
+  <tr>
+    <td> <%= link_to "#{review.reviewer.first_name}", user_path(review.reviewer.id)  %>    </td>
+    <td> <%= review.title %> </td>
+    <td> <%= review.body %> </td>
+    <td> <%= review.rating %> </td>
   </tr>
 <% end %>
 </tbody>
