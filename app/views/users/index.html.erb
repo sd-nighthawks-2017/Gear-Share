@@ -5,36 +5,40 @@
 </head>
 <body>
 
-  <%= form_tag(items_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Available Gear" %>
-    <%= submit_tag "Search", :name => nil %>
+<%= form_tag(items_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Available Gear" %>
+  <%= submit_tag "Search", :name => nil %>
 <% end %>
-  <h1>Available Gear</h1>
 
-  <% @users.each do |user| %>
+<h1>Available Gear</h1>
+
+<% @users.each do |user| %>
   <%= current_user.distance_to(user.location).round(2)%><span> miles away</span>
 
- <table>
-  <tr>
-    <th> Picture: </th>
-    <th> Owner: </th>
-    <th> Item: </th>
-    <th> Description: </th>
-  </tr>
+    <div class="table-responsive">
+      <table class="table table-hover table-condensed">
+        <thead>
+        <tr>
+          <th> Picture: </th>
+          <th> Owner: </th>
+          <th> Item: </th>
+          <th> Description: </th>
+        </tr>
+      </thead>
 
-<% user.items.each do |item| %>
-  <tr>
-    <td> Pic Here </td>
-    <td> <%= link_to "#{user.first_name}", user_path(user)  %> </td>
-    <td> <%= item.name %> </td>
-    <td> <%= item.description %> </td>
-    <td> <%= link_to 'View', item_path(item) %> </td>
-    <td> <%= link_to image_tag(item.image.url(:small)), item.image.url %> </td>
-    <td> <%= link_to 'Reserve', new_item_reservation_path(item) %> </td>
-  </tr>
-<% end %>
-</table>
-<% end %>
+      <% user.items.each do |item| %>
+        <tr>
+          <td><%= link_to image_tag(item.image.url(:small)), item.image.url %></td>
+          <td> <%= link_to "#{user.first_name}", user_path(user)  %> </td>
+          <td> <%= item.name %> </td>
+          <td> <%= item.description %> </td>
+          <td> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs" %> </td>
+          <td> <%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs" %> </td>
+        </tr>
+      <% end %>
+    </table>
+      <% end %>
+  </div>
 
 </body>
 </html>
