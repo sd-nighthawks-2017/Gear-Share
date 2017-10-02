@@ -41,6 +41,8 @@ gem 'simplecov', :require => false, :group => :test
 
 gem 'bootstrap-sass'
 
+gem 'jquery-rails'
+
 gem 'geocoder'
 
 group :development, :test do
