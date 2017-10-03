@@ -1,6 +1,5 @@
   <h3>Gear I Need:</h3>
-  <% task = Task.find_by(user_id: current_user) %>
-  <%= form_for @task, url: {controller: "tasks", action: "create"} do |f| %>
+  <%= form_for Task.new, url: {controller: "tasks", action: "create"}, html: {:id => "items-form"} do |f| %>
     <%= f.text_field :content %>
     <%= f.submit "Add Task" %>
   <% end %>

@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 		@task = Task.find(params[:id])
 		@task.destroy
 
-		redirect_to action: :index
+		redirect_to action: "index"
 	end
 
 	private
