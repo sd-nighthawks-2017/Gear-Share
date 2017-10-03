@@ -1,0 +1,11 @@
+  <h3>Gear I Need:</h3>
+  <% task = Task.find_by(user_id: current_user) %>
+  <%= form_for @task, url: {controller: "tasks", action: "create"} do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit "Add Task" %>
+  <% end %>
+
+  <% @tasks.each do |task| %>
+    <%= link_to image_tag("trash.jpg", size: '20'), task_path(task), method: :delete %>
+    <%= task.content %><br>
+  <% end %>
