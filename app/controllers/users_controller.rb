@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:index]
 
   ## GET all staff
   def index
@@ -8,13 +9,12 @@ class UsersController < ApplicationController
 ## GET new user member form
   def new
     @user = User.new
-    redirect_to new_user_session_path
   end
 
 ## POST newly created user member
   def create
     @user = User.create(params[:user])
-    redirect_to
+    # redirect_to
   end
 
 ## GET a specific user member
