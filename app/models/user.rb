@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :reservations
   has_many :items
   has_many :rented_items, {:class_name => "Item", :foreign_key => "renter_id"}
+  has_many :tasks
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

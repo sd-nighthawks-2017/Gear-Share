@@ -5,26 +5,10 @@
 </head>
 <body>
 <% if @items.blank? %>
-  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+  <h4>There is no gear matching the term <%= params[:search] %>.</h4>
 <% end %>
-<table>
-  <tr>
-    <th>Name </th>
-    <th>Description </th>
-  </tr>
-<% @items.each do |item| %>
-  <tr>
-    <td> <%= item.name  %></td>
-    <td> <%= item.description  %></td>
-    <td> <%= link_to 'Reserve', new_item_reservation_path(item), class: 'btn btn-default btn-xs' %> </td>
-    <td> <%= link_to 'Show', item_path(item), class: 'btn btn-primary btn-xs' %> </td>
-    <td> <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-info btn-xs' %> </td>
-    <td> <%= link_to 'Delete', item_path(item),
-              method: :delete,
-              data: {confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %> </td>
-  </tr>
-<% end %>
-</table>
+
+<%= render 'shared/items_list' %>
 
 <%= link_to new_item_path, class: 'btn btn-success' do %>
   <i class="glyphicon glyphicon-plus"></i> New

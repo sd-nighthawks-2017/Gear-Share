@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task List</title>
+</head>
+<body>
+	<h3>Gear I Need:</h3>
+
+<%= form_for @task, url: {controller: "tasks", action: "create"} do |f| %>
+	<%= f.text_field :content %>
+	<%= f.submit "Add Task" %>
+<% end %>
+
+<div class="task_form">
+	<% @tasks.each do |task| %>
+<table>
+<tr>
+	<td><%= link_to image_tag("trash.jpg", size: '15'), task_path(task), method: :delete %></td>
+	
+	<td><%= task.content %></td>
+	
+</tr>
+</table>
+	<% end %>
+
+
+</div>
+
+<div class="task_text"></div>
+
+</body>
+</html>
+

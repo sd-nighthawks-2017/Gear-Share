@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   ## GET all staff
   def index
     @users = User.all
+    @items = []
   end
 
 ## GET new user member form

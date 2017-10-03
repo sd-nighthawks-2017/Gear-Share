@@ -10,6 +10,10 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
+<% if @items.length %>
+  <%= render 'shared/items_list' %>
+<% end %>
+
 <h1>Available Gear</h1>
 
 <% @users.each do |user| %>
