@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :rented_items, {:class_name => "Item", :foreign_key => "renter_id"}
   has_many :reviews
+  has_many :tasks
 
 
 
