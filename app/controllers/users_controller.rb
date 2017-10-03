@@ -8,14 +8,12 @@ class UsersController < ApplicationController
 ## GET new user member form
   def new
     @user = User.new
-
     redirect_to new_user_session_path
   end
 
 ## POST newly created user member
   def create
     @user = User.create(params[:user])
-
     redirect_to
   end
 

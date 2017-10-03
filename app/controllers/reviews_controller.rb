@@ -18,12 +18,15 @@ class ReviewsController < ApplicationController
     @review.user_id = @user.id
 
 
+    if @user.reviews.find {|rev| rev.reviewer_id == current_user.id}
+      redirect_to user_path(@user.id)
+    else
       if @review.save
         redirect_to user_path(@user.id)
       else
         render 'new'
       end
-
+    end
   end
 
   def edit
