@@ -4,9 +4,6 @@
   <title></title>
 </head>
 <body>
-  <p><%= @item.name%></p>
-  <p><%= @item.description %></p>
-  <p><%= link_to 'Back' , profile_path(current_user.id) %> </p>
-  <%= link_to image_tag(@item.image.url(:large)), @item.image.url %>
+ <%= render 'show' %>
 </body>
 </html>

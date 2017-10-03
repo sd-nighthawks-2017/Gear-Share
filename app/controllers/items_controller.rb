@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  def index
-    @users = User.all
+  respond_to :html, :js
 
+  def index
     if params[:search]
       @items = Item.search(params[:search]).order("created_at DESC")
     else
