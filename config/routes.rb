@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-
+resources :tasks, only: [:index, :new, :create, :destroy]
 
 end
