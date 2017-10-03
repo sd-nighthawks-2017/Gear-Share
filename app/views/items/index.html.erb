@@ -4,31 +4,44 @@
   <title></title>
 </head>
 <body>
+
+<%= form_tag(items_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Available Gear" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<h1 style="color: white">Available Gear</h1>
+
 <% if @items.blank? %>
-  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+  <h4>There is no gear containing the term <%= params[:search] %>.</h4>
 <% end %>
-<table>
-  <tr>
-    <th>Name </th>
-    <th>Description </th>
-  </tr>
+
+<div class="row">
 <% @items.each do |item| %>
-  <tr>
-    <td> <%= item.name  %></td>
-    <td> <%= item.description  %></td>
-    <td> <%= link_to 'Reserve', new_item_reservation_path(item), class: 'btn btn-default btn-xs' %> </td>
-    <td> <%= link_to 'Show', item_path(item), class: 'btn btn-primary btn-xs' %> </td>
-    <td> <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-info btn-xs' %> </td>
-    <td> <%= link_to 'Delete', item_path(item),
-              method: :delete,
-              data: {confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %> </td>
-  </tr>
+  <% if item.approved == false %>
+    <div class="col-sm-6">
+    <div class="card" style="width: auto; color: white">
+      <div class="card-header"><%= item.name  %></div>
+      <img class="card-img-top" src="<% item.image.url(:large) %>" alt="Card image cap">
+        <div class="card-block">
+          <p class="card-date"><%= item.created_at.strftime("%A, %b %d") %></p>
+          <p class="card-text"><%= item.description  %></p>
+            <div class="card-block text-center">
+              <a class="card-link" style="width: auto; color: white;"><%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs", style: "width: auto" %></a>
+              <a class="card-link" style="width: auto; color: white;"><%= link_to 'More Info', item_path(item), class: "btn btn-default btn-xs", style: "width: auto" %></a>
+            </div>
+        </div>
+    </div>
+  </div>
+  <% end %>
 <% end %>
-</table>
+</div>
 
 <%= link_to new_item_path, class: 'btn btn-success' do %>
-  <i class="glyphicon glyphicon-plus"></i> New
+  <i class="glyphicon glyphicon-plus"></i> Post New Item
 <% end %>
-
+<%= link_to items_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> Back to Items
+<% end %>
 </body>
 </html>

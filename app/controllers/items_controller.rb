@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
+  respond_to :html, :js
+
   def index
-    @items = Item.all.order("created_at DESC")
-    
     if params[:search]
       @items = Item.search(params[:search]).order("created_at DESC")
-    else 
+    else
       @items = Item.all.order("created_at DESC")
-    end 
+    end
   end
 
   def show
