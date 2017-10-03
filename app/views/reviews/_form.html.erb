@@ -1,0 +1,29 @@
+<%= form_for(@review, url: user_reviews_path, html: {multipart: true, class: 'form-horizontal'}) do |f|%>
+
+  <div class="field form-group">
+    <%= f.label :title, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :body, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :rating, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.number_field :rating, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

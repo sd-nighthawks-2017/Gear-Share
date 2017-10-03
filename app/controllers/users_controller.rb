@@ -9,14 +9,12 @@ class UsersController < ApplicationController
 ## GET new user member form
   def new
     @user = User.new
-
     redirect_to new_user_session_path
   end
 
 ## POST newly created user member
   def create
     @user = User.create(params[:user])
-
     redirect_to
   end
 
@@ -24,6 +22,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @items = Item.where(user_id: @user.id)
+    @reviews = Review.where(user_id: @user.id)
   end
 
 ## GET a form for editing the user member
