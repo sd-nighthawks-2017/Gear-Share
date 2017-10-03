@@ -4,10 +4,11 @@
   <title></title>
 </head>
 <body>
-<h1> <%=@user.first_name%>  </h1>
+<h1> <%=@user.first_name%>
 <% @user.average_rating.times do %>
   <%= image_tag 'firepit.png', size: "30x30", :title => 'fire_pit' %>
 <% end %>
+ </h1>
 
 <p> <%=@user.first_name%>'s available items: <p>
 
@@ -29,7 +30,7 @@
     <td> <%= link_to 'View', item_path(item) %> </td>
     <td> <%= link_to image_tag(item.image.url(:large)), item.image.url %> </td>
     <td> <%= link_to 'Reserve', new_item_reservation_path(item) %> </td>
-    <td> <%= link_to "Review #{@user.first_name}", new_user_review_path(@user) %> </td>
+
   </tr>
 <% end %>
 </tbody>
@@ -63,5 +64,6 @@
 
 <%= link_to 'Back' , users_path %>
 
+ <%= link_to "Leave #{@user.first_name} a review", new_user_review_path(@user) %>
 </body>
 </html>
