@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   skip_before_action :require_login, only: [:show, :index]
-  def index
-    @items = Item.all.order("created_at DESC")
+  respond_to :html, :js
 
+  def index
     if params[:search]
       @items = Item.search(params[:search]).order("created_at DESC")
     else
