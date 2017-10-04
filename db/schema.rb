@@ -12,6 +12,10 @@
 
 
 
+ActiveRecord::Schema.define(version: 20171003222102) do
+
+
+
 ActiveRecord::Schema.define(version: 20171002184500) do
 
 
@@ -104,6 +108,11 @@ ActiveRecord::Schema.define(version: 20171002184500) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
