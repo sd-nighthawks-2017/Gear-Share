@@ -3,6 +3,17 @@ class ApplicationController < ActionController::Base
   before_action :create_tasks_variable
   protect_from_forgery with: :exception
 
+  before_action :require_login
+
+  private
+
+  def require_login
+    unless user_signed_in?
+      flash[:notice] = "You must be logged in to continue"
+      redirect_to new_user_session_path
+    end
+  end
+
   protected
 
     def after_sign_in_path_for(resource)
