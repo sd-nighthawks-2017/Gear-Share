@@ -5,40 +5,21 @@
 </head>
 <body>
 
-<h1 style="color: white">Available Gear</h1>
+<%= form_tag(users_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search By User" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
 
 
 <% @users.each do |user| %>
 
-<% if user_signed_in? %>
-  <%= current_user.distance_to(user.location) %>
-<% end %>
+  <%= link_to "#{user.username}", user_path(user),  class:"btn btn-default btn-xs", style: "width: auto" %><%=" has "%><%= user.items.count %><%=" items available"%><br>
+  <%= current_user.distance_to(user.location).round(2)%><%= " is miles away" %><br>
 
-<% user.items.each do |item| %>
-  <% if item.approved == false %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
-        <div class="card text-center" style="width: 50rem; color: white; background-color: #006400;">
-          <img class="card-img-top" <%= link_to image_tag(item.image.url(:large)), item.image.url %></img>
-            <div class ="card-body">
-              <h4 class="card-title text-center"> <%= item.name %> </h4>
-              <p class="card text-center"> <%= item.description %> </p>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-center" style="width: 25rem; color: white;"><%= link_to "#{user.first_name}", user_path(user),  class:"btn btn-default btn-xs", style: "width: 100%" %> </li>
-                <li class="list-group-item text-center" style="width: 25rem; color: white;"> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs", style: "width: 100%"%> </li>
-                <li class="list-group-item text-center" style="width: 25rem; color: white;"> <%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs", style: "width: 100%" %> </li>
-               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <% end %>
+<% end %><br>
+<%= link_to users_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> All Users
 <% end %>
-</div>
-<%# end %>
 
 </body>
 </html>

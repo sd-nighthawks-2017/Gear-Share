@@ -10,11 +10,13 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Find Gear',  users_path %></li>
+        <li class="active"><%= link_to 'Find Gear',  items_path %></li>
+        <li class="active"><%= link_to 'Find Users',  users_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li> <%= link_to 'Profile', profile_path(current_user) %></li>
+          <li><%= link_to 'Profile', profile_path(current_user) %></li>
+          <li id="task-link"><%= link_to 'MyList', tasks_path %></li>
           <li> <%= link_to 'Share Gear', new_item_path %> </li>
           <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
           <li id="mylist"> <%= link_to 'MyList', tasks_path %></li>
@@ -24,5 +26,6 @@
         <% end %>
       </ul>
     </div>
+    <div id="task-list"><%= render "tasks/form" %></div>
   </div>
 </nav>
