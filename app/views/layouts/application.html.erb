@@ -11,6 +11,10 @@
       body {
         font-family: 'Lato';
       }
+      .notice {
+        margin-top: 50px;
+        margin-bottom: 0;
+      }
     </style>
   </head>
   <body>
@@ -20,10 +24,10 @@
     <% if current_page?(root_path) %>
       <%= render 'layouts/home_header' %>
     <% else %>
-      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
       <div id="main-container" class="container">
+      <p class="notice"><%= notice %></p>
         <div class="row">
           <div id="content" class="col-xs-12">
             <%= yield %>
