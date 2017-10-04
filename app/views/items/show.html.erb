@@ -4,6 +4,22 @@
   <title></title>
 </head>
 <body>
+
+<%= link_to 'Back' , profile_path(current_user.id) %>
+
+<div class="row text-center">
+  <div class="col-md-12 product-info-wrapper">
+    <p><%= @item.name%></p>
+    <p><%= @item.description %></p>
+  </div>
+</div>
+
+<div class ="col-md-offset-3">
+  <%= image_tag(@item.image.url, :size => "200%x200%") %>
+</div>
+
+
  <%= render 'show' %>
+
 </body>
 </html>
