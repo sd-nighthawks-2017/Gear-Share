@@ -1,4 +1,2 @@
-  <%#= link_to image_tag(@item.image.url(:large)), @item.image.url %>
-  <p><%= @item.name%></p>
-  <p><%= @item.description %></p>
-
+<%= @item.description %><br>
+<%= link_to 'Reserve', new_item_reservation_path(@item), class: "btn btn-default btn-xs", style: "width: auto" %>

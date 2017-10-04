@@ -6,4 +6,11 @@ $(document).ready(function() {
 
     });
   });
+
+  $(".show-item-button").on('click', function(event) {
+    console.log("clicked")
+    event.preventDefault();
+    $(this).closest(".card").find(".append-show").toggle();
+  });
+
 });
