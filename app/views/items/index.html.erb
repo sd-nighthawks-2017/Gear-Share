@@ -28,7 +28,7 @@
           <p class="card-text"><%= item.description  %></p>
             <div class="card-block text-center">
               <a class="card-link" style="width: auto; color: white;"><%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs", style: "width: auto" %></a>
-              <a class="card-link" style="width: auto; color: white;"><%= link_to 'More Info', item_path(item), class: "btn btn-default btn-xs", style: "width: auto" %></a>
+              <a class="card-link" id="item-show-button" style="width: auto; color: white;"><%= link_to 'More Info', item_path(item), remote: true, class: "btn btn-default btn-xs", style: "width: auto" %></a>
             </div>
         </div>
     </div>
@@ -36,6 +36,7 @@
   <% end %>
 <% end %>
 </div>
+<div id="append-show"></div>
 
 
 <%= link_to new_item_path, class: 'btn btn-success' do %>
