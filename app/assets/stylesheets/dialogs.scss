@@ -1,3 +1,40 @@
 // Place all the styles related to the dialogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container-dialog {
+  border: 2px solid #dedede;
+  background-color: #c6ecc6;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+span.dialog-author {
+  font-size: 1.15em;
+}
+
+.container-dialog p {
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddddbb;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+span.timestamp {
+  float: right;
+  color: #aaa;
+  font-size: .75em;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
