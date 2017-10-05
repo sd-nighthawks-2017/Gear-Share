@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameteres, if: :devise_controller?
-  #before_action :create_tasks_variable
+  before_action :create_tasks_variable
   protect_from_forgery with: :exception
-  #skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   before_action :require_login
 
@@ -21,11 +21,11 @@ class ApplicationController < ActionController::Base
       profile_path(current_user.id)
     end
 
-    # def create_tasks_variable
-    #   if current_user
-    #     @tasks = Task.all
-    #   end
-    # end
+    def create_tasks_variable
+      if user_signed_in?
+        @tasks = Task.all
+      end
+    end
 
     def configure_permitted_parameteres
       devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name, :birthdate, :location])
