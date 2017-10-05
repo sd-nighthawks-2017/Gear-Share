@@ -1,3 +1,105 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #fff;
+
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.badge {
+  background-color: #777;
+}
+
+.tabs-left { margin-top: 0rem; }
+
+.nav-tabs {
+  float: left;
+  border-bottom: 0;
+
+
+  li {
+    float: none;
+    margin: 0;
+
+    a {
+      height: 200px;
+      margin-right: 0;
+      border: 0;
+      background-color: #333;
+
+      &:hover {
+        background-color: #444;
+      }
+    }
+  }
+
+  .glyphicon {
+    color: #fff;
+  }
+
+  .active .glyphicon {
+    color: #333;
+  }
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  border:0;
+}
+.nav-tabs>li.vertical_li{
+  #float: none;
+}
+
+.tab-content {
+  margin-left: 0px;
+
+  .tab-pane {
+    display: none;
+    background-color: #fff;
+    padding: 1.6rem;
+    overflow-y: auto;
+  }
+
+.active { display: block; }
+
+}
+
+.list-group {
+  width: 100%;
+  .list-group-item {
+    height: 250px;
+    border: 0px;
+    h4, span {
+      line-height: 11px;
+    }
+  }
+}
+
+.vertical-text{
+  width: .5px;
+  color: grey;
+  word-wrap: break-word;
+  white-space:pre-wrap;
+
+}
+
+#main-container{
+  margin-left: 0px;
+ padding-left: 10px;
+ padding-top: 0px;
+}
+
+.container{
+ margin-left: 0px;
+ padding-left: 10px;
+ padding-top: 0px;
+ width: 100%;
+}
+
+.card{
+
+}
