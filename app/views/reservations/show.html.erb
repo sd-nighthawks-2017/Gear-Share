@@ -5,30 +5,39 @@
 </head>
 <body>
 
-  <p> <%= @item.name %> </p>
-  <p> <%= @item.description %> </p>
+<div class="reservation-wrapper">
+  <h2><%= @item.name %></h2>
 
-  <p><%=  @reservation.day%></p>
-  <p><%=  @reservation.city %></p>
-  <p> <%= @reservation.message %> </p>
+  <ul class="list-group col-sm-9">
+    <li class="list-group-item"><span class="item-detail">Description:</span><%= @item.description %></li>
+    <li class="list-group-item"><span class="item-detail">Date:</span><%= @reservation.day %></li>
+    <li class="list-group-item"><span class="item-detail">Requester Location:</span><%= @reservation.city %></li>
+    <li class="list-group-item"><span class="item-detail">Note:</span><%= @reservation.message %> </li>
+  </ul>
 
-<table>
-  <tr>
-    <th> username  </th>
-    <th> message </th>
-  </tr>
+   <% @dialogs.each do |dialog| %>
+    <% if (current_user.id == dialog.user_id) || (current_user.id == dialog.renter_id) %>
+      <div class="container-dialog col-sm-9">
+        <span class="dialog-author"><%= dialog.username %>:</span>
+        <p>"<%= dialog.body %>"</p>
+        <span class="timestamp"><%= dialog.updated_at %></span>
+      </div>
+    <% else %>
+      <div class="container-dialog darker col-sm-9">
+        <span class="dialog-author"><%= dialog.username %>:</span>
+        <p>"<%= dialog.body %>"</p>
+        <span class="timestamp"><%= dialog.updated_at %></span>
+      </div>
+    <% end %>
+  <% end %>
 
- <% @dialogs.each do |dialog| %>
- <tr>
-  <td> <%= dialog.username %> </td>
-  <td> <%= dialog.body %> </td>
- </tr>
- <% end %>
- </table>
-
-<%= render 'dialog' %>
-
-<p><%= link_to 'Back', profile_path(current_user.id) %> </p>
+  <div class="form-group">
+    <!-- <div class="col-sm-10"> -->
+      <%= render 'dialog' %>
+      <%= link_to 'Back', profile_path(current_user.id) %>
+    <!-- </div> -->
+  </div>
+</div>
 
 </body>
 </html>

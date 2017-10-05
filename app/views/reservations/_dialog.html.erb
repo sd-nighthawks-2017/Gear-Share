@@ -1,12 +1,9 @@
-<%= form_with scope: :dialog, url: "/items/#{@item.id}/reservations/#{@reservation.id}/dialogs", local: true do |form| %>
-
-<p>
-  <%= form.label :body %> <br>
-  <%= form.text_field :body %>
-</p>
-
-<p>
-  <%= form.submit %>
-</p>
-
+<%= form_with scope: :dialog, url: "/items/#{@item.id}/reservations/#{@reservation.id}/dialogs", class: "form-inline", local: true do |form| %>
+  <div class="field form-group">
+    <%= form.label :body, "Message:" %>
+    <%= form.text_field :body, class: "form-control" %>
+  </div>
+  <div class="actions form-group">
+    <%= form.submit "Post", class: "btn btn-xs" %>
+  </div>
 <% end %>

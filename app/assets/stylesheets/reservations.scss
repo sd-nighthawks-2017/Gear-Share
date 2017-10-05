@@ -1,3 +1,13 @@
 // Place all the styles related to the reservations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+span.item-detail {
+  font-size: 1.15em;
+  margin-right: 3px;
+}
+
+.reservation-wrapper {
+  margin: 0 auto;
+  max-width: 550px;
+}
