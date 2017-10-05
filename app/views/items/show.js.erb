@@ -1,3 +1,7 @@
-$("#item-show-button").closest("body").find("#append-show").html("<%= escape_javascript(render 'show') %>" )
-// $("#append-show").modal("show")
-//append("<%= escape_javascript(render 'show') %>")
+$(document).ready(function(){
+  $(".show-item-button").on('click', function(event) {
+    event.preventDefault();
+
+    $(this).closest(".card").find(".append-show").fadeToggle("slow");
+  });
+});
