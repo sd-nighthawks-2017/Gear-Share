@@ -5,21 +5,28 @@
 </head>
 <body>
 
-<%= link_to 'Back' , profile_path(current_user.id) %>
-
-<div class="row text-center">
-  <div class="col-md-12 product-info-wrapper">
-    <p><%= @item.name%></p>
-    <p><%= @item.description %></p>
-  </div>
+<h1><%= @item.name%></h1>
+<div class="item-links">
+  <%= link_to new_item_path, class: 'btn btn-warning' do %>
+    <i></i> Post New Item
+  <% end %>
+  <%= link_to profile_path(current_user.id), class: 'btn btn-warning' do %>
+    <i></i> Back to Profile
+  <% end %>
+  <%= link_to items_path, class: 'btn btn-warning' do %>
+    <i></i> List All Items
+  <% end %>
 </div>
 
 <div class ="col-md-offset-3">
-  <%= image_tag(@item.image.url, :size => "200%x200%") %>
+  <%= image_tag(@item.image.url, :size => "auto", class: "image-item-show") %>
 </div>
 
 
- <%= render 'show' %>
-
+<div class="item-show-footer">
+  <h3><%= @item.description %></h3>
+  <%= link_to 'Reserve', new_item_reservation_path(@item), class: "btn btn-default btn-xs" %>
+  <%= link_to 'Contact Owner', profile_path(@item), class: "btn btn-default btn-xs" %>
+</div>
 </body>
 </html>
