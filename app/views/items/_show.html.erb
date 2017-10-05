@@ -1,3 +1,5 @@
-<%= link_to 'Reserve', new_item_reservation_path(@item), class: "btn btn-default btn-xs"%>
-
-<%= @item.description %>
+<div class="show-partial">
+  <%= link_to 'Reserve', new_item_reservation_path(@item) %>
+  <%= @item.description %>
+  <%= @item.name %>
+<div>

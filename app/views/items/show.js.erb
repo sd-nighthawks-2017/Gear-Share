@@ -1,14 +1,7 @@
-// $(document).ready(function(){
-//   $(".show-item-button").on('ajax:success', function(event) {
-
-//     $(this).closest(".card").find(".append-show").html("<%= escape_javascript(render 'show') %>" );
-// });
-// });
-
 $(document).ready(function(){
-  $("a").on('click', function(event) {
-    console.log("clicked")
+  $(".show-item-button").on('click', function(event) {
     event.preventDefault();
-    $(this).closest(".card").find(".append-show").toggle();
-});
+
+    $(this).closest(".card").find(".append-show").fadeToggle("slow");
+  });
 });
