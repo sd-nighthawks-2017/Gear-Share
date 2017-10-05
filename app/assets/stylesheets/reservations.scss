@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.reservation-details {
+  vertical-align: middle;
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+
+.reservation-detail-item:first-child {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.reservation-detail-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
 span.item-detail {
   font-size: 1.15em;
   margin-right: 3px;

@@ -8,11 +8,11 @@
 <div class="reservation-wrapper">
   <h2><%= @item.name %></h2>
 
-  <ul class="list-group col-sm-9">
-    <li class="list-group-item"><span class="item-detail">Description:</span><%= @item.description %></li>
-    <li class="list-group-item"><span class="item-detail">Date:</span><%= @reservation.day %></li>
-    <li class="list-group-item"><span class="item-detail">Requester Location:</span><%= @reservation.city %></li>
-    <li class="list-group-item"><span class="item-detail">Note:</span><%= @reservation.message %> </li>
+  <ul class="reservation-details col-sm-9">
+    <li class="reservation-detail-item"><span class="item-detail">Description:</span><%= @item.description %></li>
+    <li class="reservation-detail-item"><span class="item-detail">Date:</span><%= @reservation.day %></li>
+    <li class="reservation-detail-item"><span class="item-detail">Requester Location:</span><%= @reservation.city %></li>
+    <li class="reservation-detail-item"><span class="item-detail">Note:</span><%= @reservation.message %> </li>
   </ul>
 
    <% @dialogs.each do |dialog| %>
