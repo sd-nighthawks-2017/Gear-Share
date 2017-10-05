@@ -1,119 +1,108 @@
-<!DOCTYPE html>
-<html>
-<head>
+  <!DOCTYPE html>
+  <html>
+  <head>
   <title></title>
-</head>
-<body>
+  <%= stylesheet_link_tag 'profiles' %>
+  </head>
+  <body>
+  <div class="container" id="nav">
+  <div class="row">
+      <div class="tabs-left">
+        <ul class="nav nav-tabs">
+          <li class="active vertical_li"><a href="#a" data-toggle="tab"><p class="vertical-text">Your Gear</p></a></li>
+          <li class="vertical_li"><a href="#b" data-toggle="tab"><p class="vertical-text">Requests</p></a></li>
+          <li class="vertical_li"><a href="#c" data-toggle="tab"><p class="vertical-text">Reserved</p></a></li>
+          <li class="vertical_li"><a href="#f" data-toggle="tab"><p class="vertical-text">Account </p></a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="a">
+            <ul class="list-group pull-left text-center">
+            <h4>My Available Gear</h4>
+            <% @items.each_slice(3) do |items| %>
+              <div class="row">
+              <% items.each do |item| %>
+                <div class="col-md-4">
+                <li class="list-group-item">
+                  <% if item.approved %>
+                      <% else %>
+                        <div class="card">
 
-<div class="container">
-<h2> My Gear: </h2>
-<table class="table table-hover table-condensed">
-<thead>
-  <tr>
-    <th>Name </th>
-    <th>Description </th>
-    <th>Image </th>
-    <th>Available</th>
-    <th>Link </th>
-    <th>Remove</th>
-  </tr>
-</thead>
+                          <img class="card-img-top" src=<%= link_to image_tag(item.image.url(:large)),item.image.url %>
+                            <div class="card-block">
+                              <a> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs" %> </a>
+                              <a> <%= link_to 'Delete', item_path(item), class: "btn btn-default btn-xs",
+                                               method: :delete,
+                                               data: {confirm: 'Are you sure?'}%> </a>
+                          </div>
+                        </div>
+                      <% end %>
+                    </li>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+            </ul>
+          </div>
+          <div class="tab-pane" id="b">
+            <ul class="list-group pull-left text-center">
+                <h4>Gear You Have Requested</h4>
+                <% @reservations.each_slice(3) do |reservations| %>
+                  <div class="row">
+                  <% reservations.each do |res| %>
+                    <div class="col-md-4"
+                      <li class="list-group-item"
+                      <div class="card">
+                        <img class="card-img-top" src=<%= link_to image_tag(res.item.image.url(:large)), res.item.image.url %>
+                          <div class="card-block">
+                            <a> <%= link_to 'conversation', "/items/#{res.item.id}/reservations/#{res.id}", class: "btn btn-default btn-xs"  %> </a>
+                              <% if res.item.approved %>
+                                 <a> approved </a>
+                              <% else %>
+                                <a> pending </a>
+                              <% end %>
+                           </div>
+                          </div>
+                      <% end %>
+                 </li>
+              </div>
+                <% end %>
+            </ul>
+          </div>
+          <div class="tab-pane" id="c">
+            <ul class="list-group pull-left text-center">
+            <h4>Your Gear That Has Been Requested</h4>
+              <% @requests.each_slice(3) do |requests| %>
+                <div class="row">
+                <% requests.each do |req| %>
+                  <div class="col-md-4"
+                  <li class="list-group-item"
+                    <div class="card">
+                      <img class="card-img-top" src=<%= link_to image_tag(req.item.image.url(:large)), req.item.image.url, :default_url => "missing_:firepit.png"%>
+                      <div class="card-block">
+                        <td> <%= link_to 'conversation', "/items/#{req.item.id}/reservations/#{req.id}", class: "btn btn-default btn-xs"  %> </td>
+                         <% if req.item.approved %>
+                           <td> approved </td>
+                           <td><%= link_to "returned?", item_path(req.item), class: "btn btn-info btn-xs",
+                                    method: :put,
+                                    data: {confirm: 'Are you sure?' }%> </td>
+                         <% else %>
+                           <td><%= link_to "approve?", item_path(req.item), class: "btn btn-info btn-xs",
+                                    method: :put,
+                                    data: {confirm: 'Are you sure?' }%> </td>
+                         <% end %>
 
-<% @items.each do |item| %>
-<tbody>
-  <tr>
-    <td> <%= item.name  %></td>
-    <td> <%= item.description  %></td>
-    <td> <%= link_to image_tag(item.image.url(:small)), item.image.url %> </td>
-      <% if item.approved %>
-        <td> reserved </td>
-      <% else %>
-        <td> available </td>
-      <% end %>
-    <td> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs" %> </td>
-    <td> <%= link_to 'Delete', item_path(item), class: "btn btn-warning btn-xs",
-              method: :delete,
-              data: {confirm: 'Are you sure?' } %> </td>
-  </tr>
-<% end %>
-</tbody>
-</table>
-</div>
-
-<div class="container">
-  <h2> Gear You Have Requested: </h2>
-  <table class="table table-hover table-condensed">
-  <thead>
-    <tr>
-      <th> Day         </th>
-      <th> City        </th>
-      <th> Item        </th>
-      <th> Description </th>
-      <th> Link </th>
-      <th> Status </th>
-
-    </tr>
-  </thead>
-
-  <% @reservations.each do |res| %>
-  <tbody>
-    <tr>
-      <td> <%= res.day %> </td>
-      <td> <%= res.city %></td>
-      <td> <%= res.item.name %></td>
-      <td> <%= res.item.description %></td>
-      <td> <%= link_to 'Show', "/items/#{res.item.id}/reservations/#{res.id}", class: "btn btn-default btn-xs"  %> </td>
-       <% if res.item.approved %>
-        <td> approved </td>
-       <% else %>
-        <td> pending</td>
-       <% end %>
-    </tr>
-  <% end %>
-</tbody>
-</table>
-</div>
-
-
-<div class="container">
-<h2> Your Gear That Has Been Requested: </h2>
-<table class="table table-hover table-condensed">
-<thead>
-  <tr>
-    <th> Day          </th>
-    <th> City         </th>
-    <th> Item         </th>
-    <th> Description  </th>
-    <th> Requested by:</th>
-    <th> Link         </th>
-    <th> Status       </th>
-  </tr>
-</thead>
-
-<% @requests.each do |req| %>
-<tbody>
-  <tr>
-    <td> <%= req.day %> </td>
-    <td> <%= req.city %></td>
-    <td> <%= req.item.name %></td>
-    <td> <%= req.item.description %></td>
-    <td> <%= req.renter.first_name %> </td>
-    <td> <%= link_to 'Conversation', "/items/#{req.item.id}/reservations/#{req.id}", class: "btn btn-default btn-xs"  %> </td>
-
-     <% if req.item.approved %>
-       <td> approved </td>
-       <td><%= link_to "returned?", item_path(req.item), class: "btn btn-info btn-xs",
-                method: :put,
-                data: {confirm: 'Are you sure?' }%> </td>
-     <% else %>
-       <td><%= link_to "approve?", item_path(req.item), class: "btn btn-info btn-xs",
-                method: :put,
-                data: {confirm: 'Are you sure?' }%> </td>
-     <% end %>
-  </tr>
-<% end %>
-</tbody>
-</table>
-</div>
-</body>
-</html>
+                      </div>
+                      </div>
+                    <% end %>
+                    </li>
+                  </div>
+                  <% end %>
+               </ul>
+          </div><!-- /tab-content -->
+        </div>
+      </div><!-- /col -->
+    </div><!-- /row -->
+  </div><!-- /container -->
+  </div>
+  </body>
+  </html>

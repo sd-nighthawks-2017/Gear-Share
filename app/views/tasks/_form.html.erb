@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
   <h3>Gear I Need:</h3>
-  <%= form_for Task.new, url: {controller: "tasks", action: "create"}, html: {:id => "items-form"} do |f| %>
-    <%= f.text_field :content %>
-    <%= f.submit "Add Task" %>
-  <% end %>
+  <%#= form_for Task.new, url: {controller: "tasks", action: "create"}, html: {:id => "items-form"} do |f| %>
+    <%#= f.text_field :content %>
+    <%#= f.submit "Add Task" %>
+  <%# end %>
 
 
   <% @tasks.each do |task| %>
@@ -11,3 +11,4 @@
     <%= task.content %><br>
   <% end %>
 <% end %>
+

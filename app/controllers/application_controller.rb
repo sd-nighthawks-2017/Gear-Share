@@ -22,13 +22,15 @@ class ApplicationController < ActionController::Base
     end
 
     def create_tasks_variable
+      
       if user_signed_in?
         @tasks = Task.all
       end
+
     end
 
     def configure_permitted_parameteres
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name, :birthdate, :location])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name, :birthdate, :location])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name, :birthdate, :location, :avatar])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name, :birthdate, :location, :avatar])
     end
 end
