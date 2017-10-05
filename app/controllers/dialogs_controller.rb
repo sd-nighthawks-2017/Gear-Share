@@ -8,7 +8,7 @@ class DialogsController < ApplicationController
     @item = Item.find(params[:item_id])
     @reservation = Reservation.find(params[:reservation_id])
     @dialog.reservation_id = @reservation.id
-    @dialog.username = current_user.first_name
+    @dialog.username = current_user.username
 
     if current_user.id == @reservation.user.id
       @dialog.user_id = @reservation.user.id
