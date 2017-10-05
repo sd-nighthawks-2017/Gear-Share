@@ -1,4 +1,5 @@
-  <%#= link_to image_tag(@item.image.url(:large)), @item.image.url %>
-  <p><%= @item.name%></p>
-  <p><%= @item.description %></p>
-
+<div class="show-partial">
+  <%= link_to 'Reserve', new_item_reservation_path(@item) %>
+  <%= @item.description %>
+  <%= @item.name %>
+<div>
