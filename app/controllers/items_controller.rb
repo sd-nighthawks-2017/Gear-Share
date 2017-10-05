@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @user = @item.user_id
   end
 
   def new
