@@ -44,6 +44,7 @@
                                       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnrDAazGk_GCygyfvQb_xSFfEMhdT2ZK8&q=<%= item.user.location %>" allowfullscreen></iframe><br>
                                       <%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs" %>
                                       <%= link_to 'Owner', profile_path(item), class: "btn btn-default btn-xs" %>
+                                      <%= link_to 'View More', item_path(item), class: "btn btn-default btn-xs" %>
 
 
             </div>
