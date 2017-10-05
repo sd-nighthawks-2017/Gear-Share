@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  skip_before_action :require_login, only: [:show, :index]
   respond_to :html, :js
 
   def index

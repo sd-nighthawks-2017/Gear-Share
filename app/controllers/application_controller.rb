@@ -4,6 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   #skip_before_action :verify_authenticity_token
 
+  before_action :require_login
+
+  private
+
+  def require_login
+    unless user_signed_in?
+      flash[:notice] = "You must be logged in to continue"
+      redirect_to new_user_session_path
+    end
+  end
+
   protected
 
     def after_sign_in_path_for(resource)
