@@ -35,6 +35,8 @@ gem 'devise'
 
 gem 'shoulda-matchers', '~> 3.1'
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 gem 'paperclip', "~> 5.0.0"
 
 gem 'simplecov', :require => false, :group => :test
@@ -44,6 +46,8 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 
 gem 'geocoder'
+
+gem 'aws-sdk', '~>2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
