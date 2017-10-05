@@ -34,7 +34,6 @@
             <div class="img_container">
               <%= link_to image_tag(item.image.url(:large), class: "card-img-top"), item.image.url %>
               <h4 class="card-title"><%= image_tag("firepit.png", size: '40')%><%= item.name  %></h4>
-
             </div>
             <div class="card-block text-center">
               <p class="card-text"><%= "Posted: "%><%= item.created_at.strftime("%A, %b %d") %></p>

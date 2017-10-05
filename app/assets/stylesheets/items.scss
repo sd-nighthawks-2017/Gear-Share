@@ -3,9 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #task-list {
-
+  display: none;
   color: white;
   float: right;
+}
+
+#search-form {
+  float: right;
+}
+
+.append-show{
+  display: none;
+}
+
+div.row.item_row {
+  padding-bottom: 40px;
 }
 
 .card-deck {
@@ -15,13 +27,27 @@
   margin: 1em;
 }
 
+.img_container {
+  width: 212px;
+  min-height: 250px;
+  position: relative;
+}
+
+img.card-img-top {
+  max-height: 210px;
+  width: 212px;
+  position: absolute;
+  bottom: 60px;
+}
+
 .card-title {
+  width: 212px;
   color: black;
   background-color: white;
   font-family: "Tahoma";
   text-align: center;
-  position: absolute;
   bottom: 0;
+  position: absolute;
 }
 
 .card-block {
@@ -34,20 +60,6 @@ p.card-text {
   font-weight: bold;
 }
 
-.glyphicon glyphicon-plus {
-  color: white;
-}
 
-#search-form {
-  float: right;
-}
-.append-show{
-  display: none;
-}
-.img_container {
-  min-height: 250px;
-  position: relative;
-}
-.item_row{
-  padding-bottom: 20px;
-}
+
+
