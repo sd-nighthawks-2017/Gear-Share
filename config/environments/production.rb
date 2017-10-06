@@ -73,8 +73,8 @@ Rails.application.configure do
   config.action_mailer.smtp_setting = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => ENV["MyGearShareApp@gmail.com"],
-    :password             => ENV["gearshare123"],
+    :user_name            => ENV[SENDMAIL_USERNAME],
+    :password             => ENV[SENDMAIL_PASSWORD],
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
