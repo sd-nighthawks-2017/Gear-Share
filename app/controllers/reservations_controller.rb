@@ -20,8 +20,10 @@ class ReservationsController < ApplicationController
     @reservation.item_id = @item.id
     @reservation.renter_id = current_user.id
     @reservation.user_id = @item.user.id
+    @user = User.find(@item.user.id)
 
     if @reservation.save
+      ReservationMailer.new_reservation_email(@user, @item).deliver
       redirect_to "/items/#{@item.id}/reservations/#{@reservation.id}"
     else
       render 'new'
