@@ -68,6 +68,17 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => ENV['SENDMAIL_USERNAME'],
+    :password             => ENV['SENDMAIL_PASSWORD'],
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
@@ -97,6 +108,8 @@ Rails.application.configure do
 # Paperclip config:
 config.paperclip_defaults ={
   storage: :s3,
+  s3_host_name: "s3-#{ENV['AWS_REGION']}.amazonaws.com",
+
   s3_credentials:{
     bucket: ENV.fetch('S3_BUCKET_NAME'),
     access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),

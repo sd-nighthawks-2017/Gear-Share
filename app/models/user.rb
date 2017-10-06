@@ -3,7 +3,8 @@ class User < ApplicationRecord
   has_many :items
   has_many :rented_items, {:class_name => "Item", :foreign_key => "renter_id"}
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ""
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
+  :default_url => "tent-icon.jpg"
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   has_many :reviews

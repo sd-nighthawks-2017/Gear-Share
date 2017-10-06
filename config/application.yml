@@ -9,9 +9,6 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-# 
-# don't look down
 #
-# export SENDMAIL_PASSWORD=gearshare123
-# export SENDMAIL_USERNAME=MyGearShareApp@gmail.com
-# export MAIL_HOST=localhost:3000
+# don't look down
+
