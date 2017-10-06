@@ -19,8 +19,3 @@
 .byebug_history
 
 .env
-
-S3_BUCKET_NAME=gear-share-storage
-AWS_ACCESS_KEY_ID=AKIAIRQSSJKKYML62EAQ
-AWS_SECRET_ACCESS_KEY=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
-AWS_REGION=us-west-1
