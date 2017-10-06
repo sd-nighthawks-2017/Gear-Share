@@ -1,108 +1,118 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html>
-  <head>
-  <title></title>
-  <%= stylesheet_link_tag 'profiles' %>
-  </head>
-  <body>
-  <div class="container" id="nav">
-  <div class="row">
-      <div class="tabs-left">
-        <ul class="nav nav-tabs">
-          <li class="active vertical_li"><a href="#a" data-toggle="tab"><p class="vertical-text">Your Gear</p></a></li>
-          <li class="vertical_li"><a href="#b" data-toggle="tab"><p class="vertical-text">Requests</p></a></li>
-          <li class="vertical_li"><a href="#c" data-toggle="tab"><p class="vertical-text">Reserved</p></a></li>
-          <li class="vertical_li"><a href="#f" data-toggle="tab"><p class="vertical-text">Account </p></a></li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="a">
-            <ul class="list-group pull-left text-center">
-            <h4>My Available Gear</h4>
-            <% @items.each_slice(3) do |items| %>
-              <div class="row">
-              <% items.each do |item| %>
-                <div class="col-md-4">
-                <li class="list-group-item">
-                  <% if item.approved %>
-                      <% else %>
-                        <div class="card">
-
-                          <img class="card-img-top" src=<%= link_to image_tag(item.image.url(:large)),item.image.url %>
-                            <div class="card-block">
-                              <a> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs" %> </a>
-                              <a> <%= link_to 'Delete', item_path(item), class: "btn btn-default btn-xs",
-                                               method: :delete,
-                                               data: {confirm: 'Are you sure?'}%> </a>
-                          </div>
-                        </div>
-                      <% end %>
-                    </li>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
+    <head>
+      <title></title>
+       <%= stylesheet_link_tag 'profiles' %>
+      </head>
+      <body>
+      <div class="container" id="nav">
+      <div class="row">
+          <div class="tabs-left text-center">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#a" data-toggle="tab"><p>Gear</p></a></li>
+              <li><a href="#b" data-toggle="tab"><p>Requests</p></a></li>
+              <li><a href="#c" data-toggle="tab"><p >Reserved</p></a></li>
+              <li><a href="#d" data-toggle="tab"><p >Account</p></a></li>
             </ul>
-          </div>
-          <div class="tab-pane" id="b">
-            <ul class="list-group pull-left text-center">
-                <h4>Gear You Have Requested</h4>
-                <% @reservations.each_slice(3) do |reservations| %>
+            <div class="tab-content">
+              <div class="tab-pane active" id="a">
+                <ul class="list-group pull-left text-center">
+                <h4>My Available Gear</h4>
+                <% @items.each_slice(3) do |items| %>
                   <div class="row">
-                  <% reservations.each do |res| %>
-                    <div class="col-md-4"
-                      <li class="list-group-item"
-                      <div class="card">
-                        <img class="card-img-top" src=<%= link_to image_tag(res.item.image.url(:large)), res.item.image.url %>
-                          <div class="card-block">
-                            <a> <%= link_to 'conversation', "/items/#{res.item.id}/reservations/#{res.id}", class: "btn btn-default btn-xs"  %> </a>
-                              <% if res.item.approved %>
-                                 <a> approved </a>
-                              <% else %>
-                                <a> pending </a>
-                              <% end %>
-                           </div>
-                          </div>
-                      <% end %>
-                 </li>
-              </div>
-                <% end %>
-            </ul>
-          </div>
-          <div class="tab-pane" id="c">
-            <ul class="list-group pull-left text-center">
-            <h4>Your Gear That Has Been Requested</h4>
-              <% @requests.each_slice(3) do |requests| %>
-                <div class="row">
-                <% requests.each do |req| %>
-                  <div class="col-md-4"
-                  <li class="list-group-item"
-                    <div class="card">
-                      <img class="card-img-top" src=<%= link_to image_tag(req.item.image.url(:large)), req.item.image.url, :default_url => "missing_:firepit.png"%>
-                      <div class="card-block">
-                        <td> <%= link_to 'conversation', "/items/#{req.item.id}/reservations/#{req.id}", class: "btn btn-default btn-xs"  %> </td>
-                         <% if req.item.approved %>
-                           <td> approved </td>
-                           <td><%= link_to "returned?", item_path(req.item), class: "btn btn-info btn-xs",
-                                    method: :put,
-                                    data: {confirm: 'Are you sure?' }%> </td>
-                         <% else %>
-                           <td><%= link_to "approve?", item_path(req.item), class: "btn btn-info btn-xs",
-                                    method: :put,
-                                    data: {confirm: 'Are you sure?' }%> </td>
-                         <% end %>
-
-                      </div>
+                  <% items.each do |item| %>
+                    <div class="col-md-4">
+                    <li class="list-group-item">
+                      <% if item.approved %>
+                          <% else %>
+                            <div class="card" id="profile-card">
+                              <img class="card-img-top" src=<%= link_to image_tag(item.image.url(:large)),item.image.url %>
+                                <div class="card-block cb">
+                                  <a> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs" %> </a>
+                                  <a> <%= link_to 'Delete', item_path(item), class: "btn btn-default btn-xs",
+                                                   method: :delete,
+                                                   data: {confirm: 'Are you sure?'}%> </a>
+                              </div>
+                            </div>
+                          <% end %>
+                        </li>
                       </div>
                     <% end %>
-                    </li>
                   </div>
-                  <% end %>
-               </ul>
-          </div><!-- /tab-content -->
-        </div>
-      </div><!-- /col -->
-    </div><!-- /row -->
-  </div><!-- /container -->
-  </div>
+                <% end %>
+                </ul>
+              </div>
+              <div class="tab-pane" id="b">
+                <ul class="list-group pull-left text-center">
+                    <h4>Gear You Have Requested</h4>
+                    <% @reservations.each_slice(3) do |reservations| %>
+                      <div class="row">
+                      <% reservations.each do |res| %>
+                        <div class="col-md-4"
+                          <li class="list-group-item"
+                          <div class="card">
+                            <img class="card-img-top" src=<%= link_to image_tag(res.item.image.url(:large)), res.item.image.url %>
+                              <div class="card-block cb">
+                                <a> <%= link_to 'conversation', "/items/#{res.item.id}/reservations/#{res.id}", class: "btn btn-default btn-xs"  %> </a>
+                                  <% if res.item.approved %>
+                                     <a> approved </a>
+                                  <% else %>
+                                    <a> pending </a>
+                                  <% end %>
+                               </div>
+                              </div>
+                          <% end %>
+                     </li>
+                  </div>
+                    <% end %>
+                </ul>
+              </div>
+              <div class="tab-pane" id="c">
+                <ul class="list-group pull-left text-center">
+                <h4>Your Gear That Has Been Requested</h4>
+                  <% @requests.each_slice(3) do |requests| %>
+                    <div class="row">
+                    <% requests.each do |req| %>
+                      <div class="col-md-4"
+                      <li class="list-group-item"
+                        <div class="card">
+                          <img class="card-img-top" src=<%= link_to image_tag(req.item.image.url(:large)), req.item.image.url, :default_url => "missing_:firepit.png"%>
+                          <div class="card-block cb">
+                            <td> <%= link_to 'conversation', "/items/#{req.item.id}/reservations/#{req.id}", class: "btn btn-default btn-xs"  %> </td>
+                             <% if req.item.approved %>
+                               <td> approved </td>
+                               <td><%= link_to "returned?", item_path(req.item), class: "btn btn-info btn-xs",
+                                        method: :put,
+                                        data: {confirm: 'Are you sure?' }%> </td>
+                             <% else %>
+                               <td><%= link_to "approve?", item_path(req.item), class: "btn btn-info btn-xs",
+                                        method: :put,
+                                        data: {confirm: 'Are you sure?' }%> </td>
+                             <% end %>
+                          </div>
+                        </div>
+                        <% end %>
+                        </li>
+                      </div>
+                      <% end %>
+                   </ul>
+                </div>
+               <div class="tab-pane" id="d">
+                <ul class="list-group pull-left text-center">
+                      <li class="list-group-item"
+                        <div class="card">
+                          <div class="card-block cb">
+                            <%= render 'editform' %>
+                          </div>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </div><!-- /tab-content -->
+            </div>
+          </div><!-- /col -->
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </div>
   </body>
-  </html>
+</html>
