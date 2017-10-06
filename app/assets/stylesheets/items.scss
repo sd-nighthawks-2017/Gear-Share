@@ -17,6 +17,7 @@
 
 #search-form {
   float: right;
+  padding-top: 10px;
 }
 
 .append-show{
@@ -24,8 +25,14 @@
   text-align: center;
 }
 
+#main-container {
+  margin: 0 auto;
+}
+
 div.row.item_row {
+  width: 100%;
   padding-bottom: 40px;
+  padding-top: 20px;
 }
 
 .card-deck {
@@ -36,21 +43,21 @@ div.row.item_row {
 }
 
 .img_container {
-  width: 212px;
+  width: 255px;
   min-height: 250px;
   position: relative;
 }
 
 img.card-img-top {
   max-height: 210px;
-  width: 212px;
+  width: 255px;
   position: absolute;
   bottom: 60px;
   z-index: -1;
 }
 
 .card-title {
-  width: 212px;
+  width: 255px;
   color: black;
   background-color: white;
   font-family: "Tahoma";
@@ -60,18 +67,18 @@ img.card-img-top {
 }
 
 .card-block {
-  border-bottom: 3px solid #eea236;
-  background-color: #16a765;
+  border: 2px solid #eea236;
 }
 
 p.card-text {
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
 .image-item-show {
   max-height: 500px;
   max-width: 500px;
+  margin: 0 auto;
 }
 
 .item-show-footer {
@@ -80,3 +87,22 @@ p.card-text {
   max-width: 500px;
   text-align: center;
 }
+
+.item-links {
+  background: white;
+}
+
+div.col-md-offset-3 {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.owner {
+  margin: 0 auto;
+  border: #eea236;
+  border-radius: 15px;
+  background: #f0ad4e;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
