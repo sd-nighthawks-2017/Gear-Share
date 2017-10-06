@@ -28,8 +28,8 @@ class TasksController < ApplicationController
 		@task.destroy
 
 		respond_to do |f|
-			f.html { redirect_to root_path }
-			f.js
+			f.html { redirect_to tasks_path }
+			f.js { render :layout => false }
 		end
 	end
 
