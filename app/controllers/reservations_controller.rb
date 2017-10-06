@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
     @user = User.find(@item.user.id)
 
     if @reservation.save
-      ReservationMailer.new_reservation_email(@user, @item)
+      #ReservationMailer.new_reservation_email(@user, @item)
       redirect_to "/items/#{@item.id}/reservations/#{@reservation.id}"
     else
       render 'new'
