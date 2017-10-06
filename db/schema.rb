@@ -40,19 +40,27 @@ ActiveRecord::Schema.define(version: 20171003222102) do
     t.datetime "image_updated_at"
   end
 
+  create_table "lists", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.datetime "day"
     t.string "city"
     t.integer "item_id"
-    t.integer "user_id"
     t.integer "renter_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "message"
   end
 
@@ -93,10 +101,6 @@ ActiveRecord::Schema.define(version: 20171003222102) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
