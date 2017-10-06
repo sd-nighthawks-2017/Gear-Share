@@ -5,6 +5,6 @@
   </head>
   <body>
     <h1>Hello, <%= @user.first_name %></h1>
-    <p>You have a new request for <%= @item.name %>. View the request by logging in, <%= @url %>.</p>
+    <p>You have a new request for <%= @item.name %>. View the request by logging in, <%= url_for(action: "sign_in", controller: "sessions", only_path: false, protocol: "https") %>.</p>
   </body>
 </html>

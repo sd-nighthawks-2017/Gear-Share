@@ -5,7 +5,6 @@ class ReservationMailer < ApplicationMailer
     @user = user
     @item = item
     @url = "gear-share-.herokuapp.com"
-    puts "in new_reservation_email method"
     mail(to: @user.email, subject: "New reservation request")
   end
 end
