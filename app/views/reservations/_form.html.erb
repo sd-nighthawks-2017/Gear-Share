@@ -1,22 +1,33 @@
 <%= form_with scope: :reservation, url: "/items/#{@item.id}/reservations", local: true do |form| %>
 
-<p>
-  <%= form.label :day %> <br>
-  <%= form.text_field :day %>
-</p>
+<div class="field form-group">
+  <%= form.label :day, class:'col-sm-4 control-label ' %>
+    <div class="col-sm-8">
+      <%= form.text_field :day, class: 'form-control' %>
+    </div>
+</div>
 
-<p>
-  <%= form.label :city %> <br>
-  <%= form.text_field :city %>
-</p>
+<div class="field form-group">
+  <%= form.label :city, class: 'col-sm-4 control-label' %>
+  <div class="col-sm-8">
+    <%= form.text_field :city, class: 'form-control'  %>
+  </div>
+</div>
 
-<p>
-  <%= form.label :message %> <br>
-  <%= form.text_field :message %>
-</p>
 
-<p>
+<div class="field form-group">
+  <%= form.label :message, class: 'col-sm-4 control-label' %>
+  <div class="col-sm-10">
+    <%= form.text_field :message, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="actions form-group">
+  <div class="col-sm-offset-2 col-sm-10">
   <%= form.submit %>
-</p>
+  </div>
+</div>
+
 
 <% end %>

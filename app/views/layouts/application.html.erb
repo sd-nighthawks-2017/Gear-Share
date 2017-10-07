@@ -17,11 +17,11 @@
     </style>
   </head>
   <body>
-
-
     <%= render 'shared/navigation' %>
     <% if current_page?(root_path) %>
       <%= render 'layouts/home_header' %>
+      <%#= render 'layouts/story' %>
+      <%#= render 'layouts/videocontainer' %>
     <% else %>
       <p class="alert"><%= alert %></p>
 
@@ -33,7 +33,13 @@
           </div>
         </div>
       </div>
+
+
     <% end %>
+
+
+
+
 
   </body>
 </html>

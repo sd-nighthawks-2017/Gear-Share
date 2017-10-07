@@ -5,65 +5,58 @@
 </head>
 <body>
 
-<h1>  <%= link_to image_tag(@user.avatar.url(:thumb)), @user.avatar.url %> <%=@user.first_name%>
-<% @user.average_rating.times do %>
-  <%= image_tag 'firepit.png', size: "30x30", :title => 'fire_pit' %>
-<% end %>
- </h1>
+  <h1>  <%= link_to image_tag(@user.avatar.url(:thumb)), @user.avatar.url %> <%=@user.first_name%>
+    <% @user.average_rating.times do %>
+    <%= image_tag 'firepit.png', size: "30x30", :title => 'fire_pit' %>
+    <% end %>
+  </h1>
 
-<p> <%=@user.first_name%>'s available items: <p>
+  <h1> <%=@user.first_name%>'s available items: </h1>
 
-<div class="container">
-<table class="table">
-<thead>
-  <tr>
-    <th> Name </th>
-    <th> description </th>
-  </tr>
-</thead>
-
-<% @items.each do |item| %>
-<% if item.approved == false %>
-<tbody>
-  <tr>
-    <td> <%= item.name %> </td>
-    <td> <%= item.description %> </td>
-    <td> <%= link_to 'View', item_path(item) %> </td>
-    <td> <%= link_to image_tag(item.image.url(:large)), item.image.url %> </td>
-    <td> <%= link_to 'Reserve', new_item_reservation_path(item) %> </td>
-  </tr>
-<% end %>
-</tbody>
-<% end %>
-</table>
+  <div class="container">
+    <% @items.each_slice(3) do |items| %>
+    <div class="row text-center">
+      <% items.each do |item| %>
+      <div class="col-md-4"
+        <div class="card">
+         <img class="card-img-top" src=<%= link_to image_tag(item.image.url(:large)), item.image.url %>
+        <div class="card-block cb">
+          <a> <%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs" %> </a>
+          <a> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs" %>  </a>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 
 
+  <h1> <%=@user.first_name %>'s reviews: <a><%= link_to 'Leave a Review', new_user_review_path(@user), class: "btn btn-default btn-xs" %></a></h1>
 
-<h1> <%=@user.first_name %>'s reviews:</h1>
-<table class="table">
-<thead>
-  <tr>
-    <th>Username</th>
-    <th>Title   </th>
-    <th>Body    </th>
-    <th>Rating  </th>
-  </tr>
-</thead>
+  <% @reviews.each_slice(3) do |reviews| %>
+  <div class="row">
+    <% @reviews.each do |review| %>
+    <div class="col-md-4"
+    <div class="card">
+      <div class="row">
+        <div class="col-md-4">
+          <%= link_to image_tag(review.reviewer.avatar.url(:thumb)), user_path(review.reviewer) %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-block cb">
+            <h4 class="ct"> <%= review.reviewer.username %>  <% review.rating.times do  |review| %>
+              <%= image_tag 'firepit.png', size: "30x30", :title => 'fire_pit' %> <% end %>
+            </h4>
+            <%= review.body %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
 
-<% @reviews.each do |review| %>
-<tbody>
-  <tr>
-    <td> <%= link_to "#{review.reviewer.first_name}", user_path(review.reviewer.id)  %>    </td>
-    <td> <%= review.title %> </td>
-    <td> <%= review.body %> </td>
-    <td> <%= review.rating %> </td>
-  </tr>
-<% end %>
-</tbody>
-</table>
 
-<%= link_to 'Back' , users_path %>
 
- <%= link_to "Leave #{@user.first_name} a review", new_user_review_path(@user) %>
-</body>
-</html>
+
+
