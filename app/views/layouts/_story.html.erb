@@ -1,0 +1,38 @@
+<div class="con">
+  <div class="row">
+    <div class="col-md-4"
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag(Item.find(71).image.url(:large)) %>
+          </div>
+
+          <div class="item">
+            <%= image_tag(Item.find(70).image.url(:large)) %>
+          </div>
+
+          <div class="item">
+             <%= image_tag(Item.find(68).image.url(:large)) %>
+          </div>
+
+          <div class="item">
+            <%= image_tag(Item.find(75).image.url(:large)) %>
+          </div>
+       </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+  </div>
+ </div>
+</div>
+
+
+
+
