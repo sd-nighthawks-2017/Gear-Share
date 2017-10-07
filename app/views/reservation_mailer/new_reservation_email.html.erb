@@ -5,6 +5,6 @@
   </head>
   <body>
     <h1>Hello, <%= @user.first_name %></h1>
-    <p>You have a new request for <%= @item.name %>. View the request by logging in, <%= url_for("gear-share-.herokuapp.com/users/sign_in", protocol: "https") %>.</p>
+    <p>You have a new request for <%= @item.name %>. View the request by logging in, <%= url_for(host: "gear-share-.herokuapp.com/users/sign_in", protocol: "https") %>.</p>
   </body>
 </html>
