@@ -1,15 +1,18 @@
-<% if user_signed_in? %>
-  <h3>Gear I Need:</h3>
-  <%= form_for Task.new, url: {controller: "tasks", action: "create"}, html: {:id => "items-form"}, remote: true do |f| %>
-    <%= f.text_field :content %>
-    <%= f.submit "Add Task" %>
-  <% end %>
+<div id='form'>
+  <% if user_signed_in? %>
+    <h3>Gear I Need:</h3>
+    <%= form_for Task.new || @task, url: {controller: "tasks", action: "create"}, html: {:id => "items-form"}, remote: true do |f| %>
+      <%= f.text_field :content %>
+      <%= f.submit "Add Task" %>
+    <% end %>
 
-<div id="listed-items">
-  <% @tasks.each do |task| %>
-    <%= link_to image_tag("orange.png", size: '15'), task_path(task), method: :delete %>
-    <%= task.content %><br>
+  <div id="listed-items">
+    <% @tasks.each do |task| %>
+    <div id="item">
+      <%= link_to image_tag("orange.png", size: '15'), task_path(task), method: :delete, remote: true, :class => "delete-task" %>
+      <%= task.content %><br>
+    </div>
+    <% end %>
   <% end %>
-<% end %>
+  </div>
 </div>
-
