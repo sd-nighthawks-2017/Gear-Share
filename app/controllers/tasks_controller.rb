@@ -27,7 +27,10 @@ class TasksController < ApplicationController
 		@task = Task.find(params[:id])
 		@task.destroy
 
-		redirect_to action: "index"
+		respond_to do |f|
+			f.html { redirect_to tasks_path }
+			f.js { render :layout => false }
+		end
 	end
 
 	private
