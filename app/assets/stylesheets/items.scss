@@ -4,7 +4,7 @@
 
 #task-list {
   display: none;
-  float: right;
+  width: 250px;
 }
 
 #form h3 {
@@ -12,7 +12,12 @@
 }
 
 #listed-items {
+  background-color: black;
   color: white;
+}
+
+#items-form {
+  background-color: black;
 }
 
 #search-form {

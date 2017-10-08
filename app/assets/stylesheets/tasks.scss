@@ -1,0 +1,25 @@
+.sidetasks {
+  height: 100%;
+  display: none;
+  float: right;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding-top: 60px;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+.sidetasks .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidetasks {padding-top: 15px;}
+  .sidetasks {font-size: 18px;}
+}
