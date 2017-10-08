@@ -1,4 +1,6 @@
-$(".delete-task").bind('ajax:success', function() {
-  $(this).closest("#item").remove();
+$(document).ready(function(){
+  $(".delete-task").bind('ajax:success', function() {
+    $(this).closest("#item").remove();
+  });
 });
-//$(".delete-task").closest("#listed-items").find("#item").remove();
+
