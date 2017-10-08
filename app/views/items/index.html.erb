@@ -6,11 +6,7 @@
 <body>
 
 <div class="container text-center">
-Available Gear <%#= form_tag(items_path, :method => "get", id: "search-form") do %>
-  <%#= text_field_tag :search, params[:search], placeholder: "Search Available Gear" %>
-  <%#= submit_tag "Search", :name => nil %>
-<%# end %>
-
+<h3>Available Gear</h3>
 <div class="item-links">
   <%= link_to new_item_path, class: 'btn btn-warning' do %>
     <i></i> Post New Item
