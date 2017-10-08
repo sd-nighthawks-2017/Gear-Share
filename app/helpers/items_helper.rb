@@ -7,6 +7,14 @@ module ItemsHelper
     @item ||= Item.new
   end
 
+  def resource_reservation
+    :reservation
+  end
+
+  def reservation
+    @reservatopm ||= Reservation.new
+  end
+
   def create
 
   end

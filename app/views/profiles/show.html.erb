@@ -28,7 +28,7 @@
                             <div class="card" id="profile-card">
                               <img class="card-img-top" src=<%= link_to image_tag(item.image.url(:large)),item.image.url %>
                                 <div class="card-block cb">
-                                  <a> <%= link_to 'View', item_path(item), class: "btn btn-default btn-xs" %> </a>
+                                  <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalView-<%=item.id%>">View</button>
                                   <a> <%= link_to 'Delete', item_path(item), class: "btn btn-default btn-xs",
                                                    method: :delete,
                                                    data: {confirm: 'Are you sure?'}%> </a>
@@ -37,6 +37,24 @@
                           <% end %>
                         </li>
                       </div>
+                      <!-- Modal View -->
+                        <div id ="modalView-<%=item.id %>" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                          <!--Modal View content -->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"> <%= image_tag(item.image.url(:large))%> </h4>
+                              </div>
+                              <div class="modal-body">
+                                <p><%= item.description %></p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default btn-xs" data-dismiss="modal"> Close</button>
+                              </div>
+                            </div>
+                        </div> <!-- Modal Dialog -->
+                      </div> <!-- myModal -->
                     <% end %>
                   </div>
                 <% end %>
