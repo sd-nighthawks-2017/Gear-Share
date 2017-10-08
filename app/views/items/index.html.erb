@@ -1,53 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
+  <!DOCTYPE html>
+    <html>
+      <head>
+       <title></title>
+          <%= stylesheet_link_tag 'profiles' %>
+      </head>
 <body>
-
-<div class="container text-center">
-<h3>Available Gear</h3>
-<div class="item-links">
-  <%= link_to new_item_path, class: 'btn btn-warning' do %>
-    <i></i> Post New Item
-  <% end %>
-  <%= link_to items_path, class: 'btn btn-warning' do %>
-    <i></i> Back to Items
-  <% end %>
-</div>
-<% if @items.blank? %>
-  <h4>There is no gear containing the term <%= params[:search] %>.</h4>
-<% end %>
-<% @items.each_slice(3) do |item_group| %>
-  <div class="row">
-    <% item_group.each do |item| %>
-      <% if item.approved == false %>
-        <div class="col-md-4">
-          <div class="card text-center">
-            <img class="card-img-top" src=<%= link_to image_tag(item.image.url(:large)), item.image.url %>
-
-            <div class="card-block cb">
-              <p class="card-text"><%= "Posted: "%><%= item.created_at.strftime("%A, %b %d") %></p>
-              <a> <%= link_to image_tag("More-Info-Button.png", size: '100x40'), item_path(item), class: "show-item-button"%> </a>
-
-            <div class="append-show"><b><%="Description: "%></b><%= item.description %><br>
-              <iframe width="200" height="200" frameborder="0" style="border:0"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnrDAazGk_GCygyfvQb_xSFfEMhdT2ZK8&q=<%= item.user.location %>" allowfullscreen></iframe><br>
-                <%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs" %>
-                <%= link_to 'Owner', user_path(item.user), class: "btn btn-default btn-xs" %>
-                <%= link_to 'View More', item_path(item), class: "btn btn-default btn-xs" %>
-
-              </div>
-            </div>
-          </div>
+  <div class="container" id ="nav">
+    <div class="row">
+      <div class="tabs-left text-center">
+        <ul class="nav nav-tabs">
+          <li class="active"> <a href="#a" data-toggle="tab" class="btn btn-warning">Available Gear</a></li>
+          <li><a href="#b" data-toggle="tab" class="btn btn-warning">Post New Item</a></li>
+        </ul>
         </div>
-      <% end %>
-    <% end %>
-  </div>
-<% end %>
-</div>
-
-
+            <div class="tab-content">
+              <div class="tab-pane active" id="a">
+                <ul class="list-group pull-left text-center">
+                  <% if @items.blank? %>
+                    <h4>There is no gear containing the term <%= params[:search] %>.</h4>
+                  <% end %>
+                  <% @items.each_slice(3) do |item_group| %>
+                    <div class="row">
+                      <% item_group.each do |item| %>
+                        <div class="col-md-4">
+                        <li class="list-group-item">
+                        <% if item.approved%>
+                        <% else %>
+                            <div class="card" id="profile-card">
+                              <img class="card-img-top" src=<%= link_to image_tag(item.image.url(:large)), item.image.url %>
+                              <div class="card-block cb">
+                                <p><%= "Posted: "%><%= item.created_at.strftime("%A, %b %d") %></p>
+                                <a> <%= link_to image_tag("More-Info-Button.png", size: '100x40'), item_path(item), class: "show-item-button"%> </a>
+                              <div class="append-show"><b><%="Description: "%></b><%= item.description %><br>
+                                <iframe width="200" height="200" frameborder="0" style="border:0"
+                                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnrDAazGk_GCygyfvQb_xSFfEMhdT2ZK8&q=<%= item.user.location %>" allowfullscreen></iframe><br>
+                                  <%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs" %>
+                                  <%= link_to 'Owner', user_path(item.user), class: "btn btn-default btn-xs" %>
+                                  <%= link_to 'View More', item_path(item), class: "btn btn-default btn-xs" %></div>
+                              </div>
+                            </div>
+                        <% end %>
+                        </li>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </ul>
+            </div>
+              <div class="tab-pane" id="b">
+                  <ul class="list-group pull-left text-center">
+                        <li class="list-group-item"
+                          <div class="card">
+                            <div class="card-block cb">
+                              <%= render 'formt' %>
+                            </div>
+                          </div>
+                        </li>
+                    </ul>
+                  </div>
+          </div><!-- /tab-content -->
+        </div><!-- /row -->
+      </div><!-- /container -->
 
 </body>
 </html>

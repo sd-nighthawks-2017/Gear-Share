@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
 	def index
-		@tasks = Task.all
+		@tasks = Task.where(user_id: current_user.id)
 		@task = Task.new
 	end
 
@@ -25,12 +25,14 @@ class TasksController < ApplicationController
 
 	def destroy
 		@task = Task.find(params[:id])
-		@task.destroy
 
+	 if @task.destroy
 		respond_to do |f|
 			f.html { redirect_to tasks_path }
-			f.js { render :layout => false }
+			f.js
 		end
+	 end
+
 	end
 
 	private
