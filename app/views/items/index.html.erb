@@ -34,51 +34,117 @@
                               <div class="append-show"><b><%="Description: "%></b><%= item.description %><br>
                                 <iframe width="200" height="200" frameborder="0" style="border:0"
                                   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnrDAazGk_GCygyfvQb_xSFfEMhdT2ZK8&q=<%= item.user.location %>" allowfullscreen></iframe><br>
-                                  <%= link_to 'Reserve', new_item_reservation_path(item), class: "btn btn-default btn-xs" %>
-                                  <%= link_to 'Owner', user_path(item.user), class: "btn btn-default btn-xs", data: {modal:true} %>
-                                  <%= link_to 'View More', item_path(item), class: "btn btn-default btn-xs" %></div>
+                                  <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalReserve-<%=item.id%>">Reserve</button>
+                                  <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalOwner-<%=item.id%>">Owner</button>
+                                   <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalView-<%=item.id%>">View</button>  </div>
+                                </div>
                               </div>
-                            </div>
-                        <% end %>
+                          <% end %>
                         </li>
                       </div>
-                    <% end %>
-                  </div>
-                <% end %>
-              </ul>
-            </div>
-              <div class="modal" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="mainModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                      <h4 class="modal-title" id="mainModalLabel">
-                        supsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsupsup
-                        <%#= yield :title if content_for? :title %>
-                      </h4>
-                    </div>
-
-                    <%= yield %>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="tab-pane" id="b">
-                  <ul class="list-group pull-left text-center">
-                        <li class="list-group-item"
-                          <div class="card">
-                            <div class="card-block cb">
-                              <%= render 'formt' %>
+                        <!-- Modal Owner -->
+                        <div id ="modalOwner-<%=item.id %>" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                        <!--Modal View content -->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"><%= image_tag(item.user.avatar.url(:thumb))%> <%=item.user.username %> <% item.user.average_rating.times do %>
+                                  <%= image_tag 'firepit.png', size: "30x30", :title => 'fire_pit' %>
+                                  <% end %>
+                               </h4>
+                              </div>
+                              <div class="modal-body">
+                                <% item.user.reviews.each do |review| %>
+                                  <h4 class="ct"> <%= review.reviewer.username %>
+                                    <% review.rating.times do |review| %>
+                                    <%= image_tag 'firepit.png', size: "30x30", :title => 'fire_pit' %>
+                                    <% end %>
+                                    <%=review.body%>
+                                  </h4>
+                                 <% end %>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default btn-xs" data-dismiss="modal"> Close</button>
+                              </div>
                             </div>
-                          </div>
-                        </li>
-                    </ul>
-                  </div>
-          </div><!-- /tab-content -->
-        </div><!-- /row -->
-      </div><!-- /container -->
-
+                          </div> <!-- Modal Dialog -->
+                        </div> <!-- myModal -->
+                      <!-- Modal Reserve -->
+                        <div id ="modalReserve-<%=item.id%>" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                        <!--Modal Reserve content -->
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <%= form_for(reservation, as: resource_reservation, url: item_reservations_path(item.id), html: {multipart: true, class: 'form-horizontal form-signin'}) do |f|%>
+                                      <h2 class="form-signin-heading">Reserve item</h2>
+                                      <div class="field form-group">
+                                        <%= f.label :day, class: 'col-sm-3 control-label' %>
+                                        <div class="col-sm-9">
+                                          <%= f.text_field :day, class: 'form-control' %>
+                                        </div>
+                                      </div>
+                                      <div class="field form-group">
+                                        <%= f.label :city, class: 'col-sm-3 control-label' %>
+                                        <div class="col-sm-9">
+                                          <%= f.text_area :city, class: 'form-control' %>
+                                        </div>
+                                      </div>
+                                      <div class="field form-group">
+                                        <%= f.label :message, class: 'col-sm-3 control-label' %>
+                                        <div class="col-sm-9">
+                                          <%= f.text_area :message, class: 'form-control' %>
+                                        </div>
+                                      </div>
+                                        <div class="actions form-group">
+                                          <div class="col-sm-offset-2 col-sm-10">
+                                            <%= f.submit class: "btn btn-success btn-lg btn-block" %>
+                                          </div>
+                                        </div>
+                                      <% end %>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default btn-xs" data-dismiss="modal"> Close</button>
+                                      </div>
+                                    </div>
+                                  </div> <!-- Modal Dialog -->
+                                </div> <!-- myModal -->
+                                <!-- Modal View -->
+                                  <div id ="modalView-<%=item.id %>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                  <!--Modal View content -->
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          <h4 class="modal-title"> <%= image_tag(item.image.url(:large))%> </h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p><%= item.description %></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-default btn-xs" data-dismiss="modal"> Close</button>
+                                        </div>
+                                      </div>
+                                    </div> <!-- Modal Dialog -->
+                                  </div> <!-- myModal -->
+                              <% end %>
+                            </div>
+                          <% end %>
+                        </ul>
+            </div>
+              <div class="tab-pane" id="b">
+                <ul class="list-group pull-left text-center">
+                    <li class="list-group-item"
+                      <div class="card">
+                        <div class="card-block cb">
+                          <%= render 'formt' %>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- /tab-content -->
+            </div><!-- /row -->
+          </div><!-- /container -->
 </body>
 </html>
