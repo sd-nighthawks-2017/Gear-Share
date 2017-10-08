@@ -1,9 +1,9 @@
 <div id='form'>
   <% if user_signed_in? %>
-    <h3>Gear I Need:</h3>
     <%= form_for Task.new || @task, url: {controller: "tasks", action: "create"}, html: {:id => "items-form"}, remote: true do |f| %>
+      <h3>Gear I Need:</h3>
       <%= f.text_field :content %>
-      <%= f.submit "Add Task" %>
+      <%= f.submit "Add Task", class: "btn btn-success btn-xs" %>
     <% end %>
 
   <div id="listed-items">
