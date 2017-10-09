@@ -7,17 +7,15 @@
 <body>
   <div class="container" id="nav">
     <div class="row">
-
         <div class="tabs-left text-center">
-
           <ul class="nav nav-tabs">
-            <p id="token"><span class="glyphicon glyphicon-tree-conifer"></span>x<%=current_user.tokens%></p>
             <li class="active"><a href="#a" data-toggle="tab"><p>Gear</p></a></li>
             <li><a href="#b" data-toggle="tab"><p>Requests</p></a></li>
             <li><a href="#c" data-toggle="tab"><p >Reserved</p></a></li>
             <li><a href="#d" data-toggle="tab"><p >Account</p></a></li>
           </ul>
             <div class="tab-content">
+              <p id="token"><span class="glyphicon glyphicon-tree-conifer"></span>x<%=current_user.tokens%></p>
               <div class="tab-pane active" id="a">
                 <ul class="list-group pull-left text-center">
                 <h4>My Available Gear</h4>
