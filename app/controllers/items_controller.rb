@@ -35,9 +35,17 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @reservation = Reservation.find_by(item_id: @item.id)
+    @renter = User.find_by(id: @reservation.renter_id)
 
     if @item.approved
       @item.update(approved: false)
+      up_tokens = @item.user.tokens += 1
+      @item.user.update(tokens: up_tokens)
+      down_tokens = @renter.tokens -= 1
+      @renter.update(tokens: down_tokens)
+
+      @reservation.destroy
       redirect_to profile_path(current_user.id)
     else
       @item.update(approved: true)
