@@ -10,16 +10,12 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :tasks
 
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :location, presence: true
   geocoded_by :location
   after_validation :geocode
-
 
   def average_rating
     if reviews.count == 0

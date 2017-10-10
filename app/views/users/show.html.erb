@@ -12,7 +12,6 @@
   </h1>
 
   <h1> <%=@user.first_name%>'s available items: </h1>
-
   <div class="container">
     <% @items.each_slice(3) do |items| %>
     <div class="row text-center">
@@ -30,9 +29,7 @@
     <% end %>
   </div>
 
-
   <h1> <%=@user.first_name %>'s reviews: <a><%= link_to 'Leave a Review', new_user_review_path(@user), class: "btn btn-default btn-xs" %></a></h1>
-
   <% @reviews.each_slice(3) do |reviews| %>
   <div class="row">
     <% @reviews.each do |review| %>

@@ -7,7 +7,6 @@
         <span class="icon-bar"></span>
       </button>
       <a class="active navbar-brand" href="/">GearShare</a>
-      <%#= link_to image_tag("logo-green.png", size: '160x40', class: "logo"), root_path %>
       <%= form_tag(items_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
         <div class="input-group">
           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Available Gear" %>
@@ -26,11 +25,6 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to 'Share Gear', new_item_path %></li>
-          <!-- <li id="task-link"><%#= link_to 'MyList', tasks_path, remote: true %></li> -->
-          <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/tasks">MyList</a>
-            <ul class="dropdown-menu">
-              <li><%#= render "tasks/form" %></li>
-            </ul> -->
           <li><a id="task-link" href="/tasks">&#9776; MyList</a></li>
           <li><%= link_to 'Profile', profile_path(current_user) %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
@@ -40,7 +34,6 @@
         <% end %>
       </ul>
     </div>
-    <!-- <div id="task-list"><%#= render "tasks/form" %></div> -->
   </div>
 </nav>
 <div id="task-list" class="sidetasks">
