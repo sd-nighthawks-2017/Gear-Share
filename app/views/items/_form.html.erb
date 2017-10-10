@@ -1,4 +1,4 @@
-<%= form_for(@item, html: {multipart: true, class: 'form-horizontal form-signin'}) do |f|%>
+<%= form_for(@item, html: {multipart: true, class: 'form-horizontal form-signin', style: 'width: 300px;'}) do |f|%>
 
   <h2 class="form-signin-heading">List an item to share</h2>
 
@@ -18,11 +18,9 @@
 
   <div class="field form-group">
     <%= f.label :image_file_name, "Image", class: "col-sm-3 control-label" %>
-    <!-- <label for="file input">Upload Image -->
     <div class="col-sm-9">
       <%= f.file_field :image %>
     </div>
-    <!-- </label> -->
   </div>
 
   <div class="actions form-group">

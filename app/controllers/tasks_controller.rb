@@ -28,7 +28,7 @@ class TasksController < ApplicationController
 
 	 if @task.destroy
 		respond_to do |f|
-			f.html { redirect_to tasks_path }
+			f.html { redirect_to items_path }
 			f.js
 		end
 	 end

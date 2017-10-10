@@ -52,6 +52,7 @@
                                 <h4 class="modal-title"><%= image_tag(item.user.avatar.url(:thumb))%> <%=item.user.username %> <% item.user.average_rating.times do %>
                                   <%= image_tag 'firepit.png', size: "30x30", :title => 'fire_pit' %>
                                   <% end %>
+                                  <a><%= link_to 'Leave a Review', new_user_review_path(item.user), class: "btn btn-default btn-xs" %></a>
                                </h4>
                               </div>
                               <div class="modal-body">
@@ -134,18 +135,18 @@
             </div>
               <div class="tab-pane" id="b">
                 <ul class="list-group pull-left text-center">
-                    <li class="list-group-item"
-                      <div class="card">
-                        <div class="card-block cb">
-                          <%= render 'formt' %>
-                        </div>
+                  <li class="list-group-item"
+                    <div class="card">
+                      <div class="card-block cb">
+                        <%= render 'formt' %>
                       </div>
-                    </li>
-                  </ul>
-                </div>
-              </div><!-- /tab-content -->
-            </div><!-- /row -->
-          </div><!-- /container -->
-        </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div><!-- /tab-content -->
+          </div><!-- /row -->
+        </div><!-- /container -->
+      </div>
 </body>
 </html>
