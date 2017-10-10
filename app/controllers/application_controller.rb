@@ -23,11 +23,9 @@ class ApplicationController < ActionController::Base
     end
 
     def create_tasks_variable
-
       if user_signed_in?
         @tasks = Task.all
       end
-
     end
 
     def configure_permitted_parameteres

@@ -17,7 +17,6 @@ class ReviewsController < ApplicationController
     @review.reviewer_id = current_user.id
     @review.user_id = @user.id
 
-
     if @user.reviews.find {|rev| rev.reviewer_id == current_user.id}
       redirect_to user_path(@user.id)
     else

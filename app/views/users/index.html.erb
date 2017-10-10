@@ -14,7 +14,7 @@
 <% @users.each do |user| %>
 
   <%= link_to "#{user.username}", user_path(user),  class:"btn btn-default btn-xs", style: "width: auto" %><%=" has "%><%= user.items.count %><%=" items available"%><br>
-  <%#= current_user.distance_to(user.location).round(2)%><%= " is miles away" %><br>
+  <%= " is miles away" %><br>
 
 <% end %><br>
 <%= link_to users_path, class: 'btn btn-success' do %>

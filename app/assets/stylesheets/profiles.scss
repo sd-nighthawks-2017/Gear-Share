@@ -25,10 +25,10 @@ h3 {
 .container {
   margin-top: 0;
 }
+
 .nav-tabs {
   float: top;
   border-bottom: 0;
-
 
   li {
     float: none;
@@ -55,10 +55,6 @@ h3 {
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
   background-color: grey;
   border:0;
-}
-
-.nav-tabs>li.vertical_li{
-
 }
 
 .tab-content {
