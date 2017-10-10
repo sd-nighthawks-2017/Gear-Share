@@ -4,7 +4,7 @@ class ReservationMailer < ApplicationMailer
   def new_reservation_email(user, item)
     @user = user
     @item = item
-    @url = "https://gear-share-.herokuapp.com/users/sign_in"
+    @url = "https://gr-share.herokuapp.com/users/sign_in"
     mail(to: @user.email, subject: "New reservation request")
   end
 end
