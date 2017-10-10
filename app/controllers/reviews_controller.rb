@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
       redirect_to user_path(@user.id)
     else
       if @review.save
-        redirect_to user_path(@user.id)
+        redirect_to items_path
       else
         render 'new'
       end
