@@ -24,14 +24,44 @@
   background-color: #f8f9fa;
 }
 
-.team-member {
-
+.team-member img {
+  border: 10px solid #fff;
+  margin-bottom: 25px;
+  width: 80%;
+  height: 80%;
 }
 
 .team-member h4 {
   margin-top: 25px;
   margin-bottom: 0;
   text-transform: none;
+}
+
+.team-member p {
+  margin-top: 0;
+  color: #868e96;
+  line-height: 1.75;
+}
+
+ul.social-buttons {
+  margin-bottom: 0;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline-item:not(:last-child) {
+  margin-right: 5px;
+}
+
+.list-inline-item i {
+  color: black;
+}
+
+.list-inline-item {
+  display: inline-block;
 }
 
 .con{
