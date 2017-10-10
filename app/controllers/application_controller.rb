@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
     def create_tasks_variable
       if user_signed_in?
-        @tasks = Task.all
+        @tasks = Task.where(user_id: current_user.id)
       end
     end
 
