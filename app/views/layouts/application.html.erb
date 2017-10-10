@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       body {
         font-family: 'Lato';
@@ -20,6 +21,7 @@
     <%= render 'shared/navigation' %>
     <% if current_page?(root_path) %>
       <%= render 'layouts/home_header' %>
+      <%= render 'layouts/home_body' %>
       <%#= render 'layouts/story' %>
       <%#= render 'layouts/videocontainer' %>
     <% else %>
