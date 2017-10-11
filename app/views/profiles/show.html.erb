@@ -107,6 +107,9 @@
                                <td><%= link_to "approve?", item_path(req.item), class: "btn btn-info btn-xs",
                                         method: :put,
                                         data: {confirm: 'Are you sure?' }%> </td>
+                                <td><%= link_to "deny?", item_path(req.item), class: "btn btn-info btn-xs",
+                                        method: :put,
+                                        data: {confirm: 'Are you sure?' }%> </td>
                              <% end %>
                           </div>
                         </div>
